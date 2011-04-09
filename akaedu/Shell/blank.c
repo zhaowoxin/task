@@ -19,14 +19,48 @@ char* blank(char *cmd)
     }
     *str = '\0';
 
-    return str;
+    return buf;
     //printf("%s\n", buf);
 }
 
+char ** arg(char *cmd)
+{
+    char *ccmd[64];
+    int i = 1;
+
+    //printf("propt->");
+    //scanf("%s", cmd);
+    ccmd[0] = cmd;
+    while(*cmd != '\0'){
+        if(*cmd == ' '){
+            *cmd = '\0';
+            ccmd[i++] = ++cmd;
+        }
+        else
+            cmd++;
+    }
+    ccmd[i] = NULL;
+    
+    return ccmd;
+}
+
+#if 0
 int main(int argc, const char *argv[])
 {
-    char cmd[128] = "ls    -l   a";
-    blank(cmd);
+    char cmd[128] = "ls -l a";
+    char *str;
+    char **ccmd;
+    int i;
+
+    str = blank(cmd);
+    printf("%s\n", str);
+    ccmd = arg(str);
+    for(i = 0; ccmd[i] != NULL; i++) {
+        printf("%s\n", ccmd[i]);
+    }
 
     return 0;
+
 }
+#endif
+
