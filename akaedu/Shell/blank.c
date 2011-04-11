@@ -1,11 +1,12 @@
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-char* blank(char *cmd)
+void blank(char *cmd, char *str)
 {
-    char *str, *buf;
+    char *buf;
 
-    str = (char*)malloc(sizeof(char) * 128);
     buf = str;
     if(*cmd == ' '){
         fprintf(stderr,"command error\n");
@@ -13,23 +14,18 @@ char* blank(char *cmd)
     }
     while(*cmd != '\0'){
         if((*cmd == ' ' && *(cmd + 1) != ' ') || *cmd != ' '){
-            *str++ = *cmd;
+            *buf++ = *cmd;
         }
         cmd++;
     }
-    *str = '\0';
-
-    return buf;
-    //printf("%s\n", buf);
+    *buf = '\0';
+//    printf("%s\n", str);
 }
 
-char ** arg(char *cmd)
+void arg(char *cmd, char *ccmd[])
 {
-    char *ccmd[64];
     int i = 1;
 
-    //printf("propt->");
-    //scanf("%s", cmd);
     ccmd[0] = cmd;
     while(*cmd != '\0'){
         if(*cmd == ' '){
@@ -40,27 +36,74 @@ char ** arg(char *cmd)
             cmd++;
     }
     ccmd[i] = NULL;
-    
-    return ccmd;
 }
 
-#if 0
 int main(int argc, const char *argv[])
 {
-    char cmd[128] = "ls -l a";
+    char cmd[128]; 
     char *str;
-    char **ccmd;
-    int i;
+    char *ccmd[64];
+    int i, fd, flag = 0;
+    pid_t pid;
 
-    str = blank(cmd);
-    printf("%s\n", str);
-    ccmd = arg(str);
-    for(i = 0; ccmd[i] != NULL; i++) {
-        printf("%s\n", ccmd[i]);
+while(1)
+{
+    str = (char*)malloc(sizeof(char) * 128);
+    printf("zhao@ubuntu:~$ ");
+    gets(cmd);
+    blank(cmd, str);
+    arg(str, ccmd);
+    for(i = 0; ccmd[i] != NULL; i++){
+        if(*ccmd[i] == '>'){
+            ccmd[i] = NULL;
+            flag = 1;
+            if((pid = fork()) < 0){
+                fprintf(stderr, "fork error\n");
+            }    
+            else if(pid == 0){
+                if((fd = open(ccmd[i + 1], O_RDWR | O_CREAT | O_TRUNC)) < 0)
+                    fprintf(stderr, "open error\n");
+                fchmod(fd, 777);
+                dup2(fd, STDOUT_FILENO);
+                if(execvp(ccmd[0], ccmd) < 0)
+                    fprintf(stderr, "exec error\n");
+                close(fd);
+            }else
+                waitpid(pid, NULL, 0);
+        }
+        else if(*ccmd[i] == '<'){
+            ccmd[i] = NULL;
+            flag = 1;
+            if((pid = fork()) < 0){
+                fprintf(stderr, "fork error\n");
+            }    
+            else if(pid == 0){
+                if((fd = open(ccmd[i + 1], O_RDONLY)) < 0)
+                    fprintf(stderr, "open error\n");
+                dup2(fd, STDIN_FILENO);
+                if(execvp(ccmd[0], ccmd) < 0)
+                    fprintf(stderr, "exec error\n");
+                close(fd);
+            }else
+                waitpid(pid, NULL, 0);
+        }
     }
+    if(flag == 0){
+        if((pid = fork()) < 0)
+            fprintf(stderr,"fork error\n");
+        else if(pid == 0){
+            //printf("child process\n");
+            if(execvp(ccmd[0], ccmd) < 0)
+                fprintf(stderr, "exec error\n");
+        }
+        else {
+           // printf("parent process\n");
+            waitpid(pid, NULL, 0);
+        }
+    } 
 
-    return 0;
-
+    free(str);
 }
-#endif
+    return 0;
+}
 
