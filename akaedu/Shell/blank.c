@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <pwd.h>
 
 void blank(char *cmd, char *str)
 {
@@ -43,21 +44,54 @@ void arg(char *cmd, char *ccmd[])
     ccmd[i] = NULL;
 }
 
+void sethomedir(char *path)
+{
+    uid_t uid;
+    struct passwd *wd;
+
+    uid = getuid();
+    printf("%d\n", uid);
+    wd = getpwuid(uid);
+    printf("%s\n", wd->pw_dir);
+    strcpy(path, wd->pw_dir);
+}
+
 void changedir(char *cmd)
 {
     char path[64];
     int i;
+    char *des;
     
     getcwd(path, 64);
     printf("%s\n", path);
-    for(i = 0; path[i] != '\0'; i++);
-    path[i] = '/';
-    path[i+1] = '\0';
-    strcat(path, cmd);
+    /*
+    if(*cmd == '.' && *(cmd + 1) == '.'){
+        des = strrchr(path, '/');
+        *des = '\0';
+        if((cmd = strchr(cmd, '/')) != NULL)
+            strcat(path, cmd);
+    }
+    else if(*cmd == '.'){
+        if((cmd = strchr(cmd, '/')) < 0)
+            strcat(path, cmd);
+    }
+    else */if(*cmd == '~'){
+        cmd = strchr(cmd, '/');
+        memset(path, '\0', 64);
+        sethomedir(path);
+    }
+    else if(*cmd != '/'){
+        for(i = 0; path[i] != '\0'; i++);
+        path[i] = '/';
+        path[i+1] = '\0';
+        strcat(path, cmd);   
+    }
+    else{
+        strcat(path, cmd);
+    }
     printf("%s\n", path);
     if(chdir(path) < 0)
-        perror("chdir error\n");
-    //if(*ccmd[1] == '.') 
+        perror("chdir error");
 }
 
 void skin(char *dir)
@@ -120,7 +154,7 @@ while(1)
             flag = 1;
             changedir(ccmd[1]);
             printf("change success\n");
-            strcpy(dir, ccmd[1]);
+            strcat(dir, ccmd[1]);
             break;
         }
     }
