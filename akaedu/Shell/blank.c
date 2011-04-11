@@ -1,3 +1,8 @@
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <string.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,18 +43,42 @@ void arg(char *cmd, char *ccmd[])
     ccmd[i] = NULL;
 }
 
+void changedir(char *cmd)
+{
+    char path[64];
+    int i;
+    
+    getcwd(path, 64);
+    printf("%s\n", path);
+    for(i = 0; path[i] != '\0'; i++);
+    path[i] = '/';
+    path[i+1] = '\0';
+    strcat(path, cmd);
+    printf("%s\n", path);
+    if(chdir(path) < 0)
+        perror("chdir error\n");
+    //if(*ccmd[1] == '.') 
+}
+
+void skin(char *dir)
+{
+    printf("zhao@ubuntu:~%s$ ", dir);
+}
+
 int main(int argc, const char *argv[])
 {
-    char cmd[128]; 
+    char cmd[128], dir[32] = " "; 
     char *str;
     char *ccmd[64];
-    int i, fd, flag = 0;
+    int i, fd, flag;
     pid_t pid;
 
 while(1)
 {
+    flag = 0;
     str = (char*)malloc(sizeof(char) * 128);
-    printf("zhao@ubuntu:~$ ");
+    skin(dir);
+    //printf("zhao@ubuntu:~$ ");
     gets(cmd);
     blank(cmd, str);
     arg(str, ccmd);
@@ -87,6 +116,13 @@ while(1)
             }else
                 waitpid(pid, NULL, 0);
         }
+        else if(strcmp(ccmd[0], "cd") == 0){
+            flag = 1;
+            changedir(ccmd[1]);
+            printf("change success\n");
+            strcpy(dir, ccmd[1]);
+            break;
+        }
     }
     if(flag == 0){
         if((pid = fork()) < 0)
@@ -101,7 +137,6 @@ while(1)
             waitpid(pid, NULL, 0);
         }
     } 
-
     free(str);
 }
     return 0;
