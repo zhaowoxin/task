@@ -22,10 +22,10 @@ int main(int argc, const char *argv[])
             exit(1);
         }else if(pid == 0){
         */
-        printf("parents process\n");
-        close(pipefd[0]);
-        dup2(pipefd[1], STDOUT_FILENO);
-        write(pipefd[1], buf, strlen(buf));
+        printf("child\n");
+        close(pipefd[1]);
+        dup2(STDIN_FILENO, pipefd[0]);
+        read(STDIN_FILENO, buf, 64);
 
         /*
         }else{
@@ -33,11 +33,11 @@ int main(int argc, const char *argv[])
         }
         */
     }else{           
-            printf("child process\n");
-            close(pipefd[1]);
-            dup2(pipefd[0], STDIN_FILENO);
-            read(pipefd[0], buf, strlen(buf));    
             waitpid(pid, NULL, 0);
+            printf("parent process\n");
+            close(pipefd[0]);
+            dup2(STDIN_FILENO,pipefd[1]);
+            write(pipefd[1], buf, 64);    
     }
     
     return 0;

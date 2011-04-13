@@ -64,7 +64,7 @@ void changedir(char *cmd)
     
     getcwd(path, 64);
     printf("%s\n", path);
-    /*
+    
     if(*cmd == '.' && *(cmd + 1) == '.'){
         des = strrchr(path, '/');
         *des = '\0';
@@ -75,7 +75,7 @@ void changedir(char *cmd)
         if((cmd = strchr(cmd, '/')) < 0)
             strcat(path, cmd);
     }
-    else */if(*cmd == '~'){
+    else if(*cmd == '~'){
         cmd = strchr(cmd, '/');
         memset(path, '\0', 64);
         sethomedir(path);
@@ -96,12 +96,13 @@ void changedir(char *cmd)
 
 void skin(char *dir)
 {
+
     printf("zhao@ubuntu:~%s$ ", dir);
 }
 
 int main(int argc, const char *argv[])
 {
-    char cmd[128], dir[32] = " "; 
+    char cmd[128], dir[32] = "\0"; 
     char *str;
     char *ccmd[64];
     int i, fd, flag;
@@ -126,7 +127,7 @@ while(1)
             else if(pid == 0){
                 if((fd = open(ccmd[i + 1], O_RDWR | O_CREAT | O_TRUNC)) < 0)
                     fprintf(stderr, "open error\n");
-                fchmod(fd, 777);
+                fchmod(fd, 755);
                 dup2(fd, STDOUT_FILENO);
                 if(execvp(ccmd[0], ccmd) < 0)
                     fprintf(stderr, "exec error\n");
@@ -156,6 +157,10 @@ while(1)
             printf("change success\n");
             strcat(dir, ccmd[1]);
             break;
+        }
+        else if(strcmp(ccmd[0], "exit") == 0){
+            printf("Normal exit\n");
+            exit(0);
         }
     }
     if(flag == 0){
