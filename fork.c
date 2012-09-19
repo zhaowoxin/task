@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**********************************
  *          fork
  *       printf("-");
@@ -19,6 +17,8 @@
  *  printf("-");  printf("--");
  *
  ***********************************/
+
+#include <stdio.h>
 
 int main(void)
 {
