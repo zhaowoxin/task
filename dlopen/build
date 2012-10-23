@@ -1,0 +1,10 @@
+#!/bin/bash
+
+NDK=~/android/android-ndk-r6
+SDK_TOOLS=~/android/android-sdk-linux/tools
+
+cd jni
+${NDK}/ndk-build -B
+cd ..
+${SDK_TOOLS}/android update project -t 4 -p . -s
+ant debug

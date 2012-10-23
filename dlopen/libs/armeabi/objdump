@@ -1,0 +1,1511 @@
+
+libtest.so:     file format elf32-littlearm
+
+
+Disassembly of section .plt:
+
+00000bb4 <.plt>:
+ bb4:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+ bb8:	e59fe004 	ldr	lr, [pc, #4]	; bc4 <begopen-0x64>
+ bbc:	e08fe00e 	add	lr, pc, lr
+ bc0:	e5bef008 	ldr	pc, [lr, #8]!
+ bc4:	000027bc 	strheq	r2, [r0], -ip
+ bc8:	e28fc600 	add	ip, pc, #0	; 0x0
+ bcc:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ bd0:	e5bcf7bc 	ldr	pc, [ip, #1980]!
+ bd4:	e28fc600 	add	ip, pc, #0	; 0x0
+ bd8:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ bdc:	e5bcf7b4 	ldr	pc, [ip, #1972]!
+ be0:	e28fc600 	add	ip, pc, #0	; 0x0
+ be4:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ be8:	e5bcf7ac 	ldr	pc, [ip, #1964]!
+ bec:	e28fc600 	add	ip, pc, #0	; 0x0
+ bf0:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ bf4:	e5bcf7a4 	ldr	pc, [ip, #1956]!
+ bf8:	e28fc600 	add	ip, pc, #0	; 0x0
+ bfc:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ c00:	e5bcf79c 	ldr	pc, [ip, #1948]!
+ c04:	e28fc600 	add	ip, pc, #0	; 0x0
+ c08:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ c0c:	e5bcf794 	ldr	pc, [ip, #1940]!
+ c10:	e28fc600 	add	ip, pc, #0	; 0x0
+ c14:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ c18:	e5bcf78c 	ldr	pc, [ip, #1932]!
+ c1c:	e28fc600 	add	ip, pc, #0	; 0x0
+ c20:	e28cca02 	add	ip, ip, #8192	; 0x2000
+ c24:	e5bcf784 	ldr	pc, [ip, #1924]!
+
+Disassembly of section .text:
+
+00000c28 <begopen>:
+     c28:	b510      	push	{r4, lr}
+     c2a:	4c0d      	ldr	r4, [pc, #52]	(c60 <begopen+0x38>)
+     c2c:	447c      	add	r4, pc
+     c2e:	4b0d      	ldr	r3, [pc, #52]	(c64 <begopen+0x3c>)
+     c30:	447b      	add	r3, pc
+     c32:	1c1a      	adds	r2, r3, #0
+     c34:	4b0c      	ldr	r3, [pc, #48]	(c68 <begopen+0x40>)
+     c36:	447b      	add	r3, pc
+     c38:	1c10      	adds	r0, r2, #0
+     c3a:	1c19      	adds	r1, r3, #0
+     c3c:	f7ff efdc 	blx	bf8 <begopen-0x30>
+     c40:	1c02      	adds	r2, r0, #0
+     c42:	4b0a      	ldr	r3, [pc, #40]	(c6c <begopen+0x44>)
+     c44:	58e3      	ldr	r3, [r4, r3]
+     c46:	601a      	str	r2, [r3, #0]
+     c48:	4b08      	ldr	r3, [pc, #32]	(c6c <begopen+0x44>)
+     c4a:	58e3      	ldr	r3, [r4, r3]
+     c4c:	681c      	ldr	r4, [r3, #0]
+     c4e:	4b08      	ldr	r3, [pc, #32]	(c70 <begopen+0x48>)
+     c50:	447b      	add	r3, pc
+     c52:	1c18      	adds	r0, r3, #0
+     c54:	2101      	movs	r1, #1
+     c56:	220b      	movs	r2, #11
+     c58:	1c23      	adds	r3, r4, #0
+     c5a:	f7ff efe0 	blx	c1c <begopen-0xc>
+     c5e:	bd10      	pop	{r4, pc}
+     c60:	2750      	movs	r7, #80
+     c62:	0000      	lsls	r0, r0, #0
+     c64:	155c      	asrs	r4, r3, #21
+     c66:	0000      	lsls	r0, r0, #0
+     c68:	155a      	asrs	r2, r3, #21
+     c6a:	0000      	lsls	r0, r0, #0
+     c6c:	002c      	lsls	r4, r5, #0
+     c6e:	0000      	lsls	r0, r0, #0
+     c70:	1544      	asrs	r4, r0, #21
+	...
+
+00000c74 <endclose>:
+     c74:	b510      	push	{r4, lr}
+     c76:	4b04      	ldr	r3, [pc, #16]	(c88 <endclose+0x14>)
+     c78:	447b      	add	r3, pc
+     c7a:	4a04      	ldr	r2, [pc, #16]	(c8c <endclose+0x18>)
+     c7c:	589b      	ldr	r3, [r3, r2]
+     c7e:	681b      	ldr	r3, [r3, #0]
+     c80:	1c18      	adds	r0, r3, #0
+     c82:	f7ff efc0 	blx	c04 <begopen-0x24>
+     c86:	bd10      	pop	{r4, pc}
+     c88:	2704      	movs	r7, #4
+     c8a:	0000      	lsls	r0, r0, #0
+     c8c:	002c      	lsls	r4, r5, #0
+	...
+
+00000c90 <main>:
+     c90:	b510      	push	{r4, lr}
+     c92:	f7ff ffc9 	bl	c28 <begopen>
+     c96:	f7ff ffed 	bl	c74 <endclose>
+     c9a:	2300      	movs	r3, #0
+     c9c:	1c18      	adds	r0, r3, #0
+     c9e:	bd10      	pop	{r4, pc}
+
+00000ca0 <_Unwind_VRS_Get>:
+     ca0:	e3510000 	cmp	r1, #0	; 0x0
+     ca4:	0a000003 	beq	cb8 <_Unwind_VRS_Get+0x18>
+     ca8:	e3510004 	cmp	r1, #4	; 0x4
+     cac:	93a00001 	movls	r0, #1	; 0x1
+     cb0:	912fff1e 	bxls	lr
+     cb4:	ea00000a 	b	ce4 <_Unwind_VRS_Get+0x44>
+     cb8:	e352000f 	cmp	r2, #15	; 0xf
+     cbc:	93530000 	cmpls	r3, #0	; 0x0
+     cc0:	03a03000 	moveq	r3, #0	; 0x0
+     cc4:	13a03001 	movne	r3, #1	; 0x1
+     cc8:	1a000005 	bne	ce4 <_Unwind_VRS_Get+0x44>
+     ccc:	e0800102 	add	r0, r0, r2, lsl #2
+     cd0:	e59d2000 	ldr	r2, [sp]
+     cd4:	e5901004 	ldr	r1, [r0, #4]
+     cd8:	e5821000 	str	r1, [r2]
+     cdc:	e1a00003 	mov	r0, r3
+     ce0:	e12fff1e 	bx	lr
+     ce4:	e3a00002 	mov	r0, #2	; 0x2
+     ce8:	e12fff1e 	bx	lr
+
+00000cec <_Unwind_VRS_Set>:
+     cec:	e3510000 	cmp	r1, #0	; 0x0
+     cf0:	0a000003 	beq	d04 <_Unwind_VRS_Set+0x18>
+     cf4:	e3510004 	cmp	r1, #4	; 0x4
+     cf8:	93a00001 	movls	r0, #1	; 0x1
+     cfc:	912fff1e 	bxls	lr
+     d00:	ea00000a 	b	d30 <_Unwind_VRS_Set+0x44>
+     d04:	e352000f 	cmp	r2, #15	; 0xf
+     d08:	93530000 	cmpls	r3, #0	; 0x0
+     d0c:	03a03000 	moveq	r3, #0	; 0x0
+     d10:	13a03001 	movne	r3, #1	; 0x1
+     d14:	1a000005 	bne	d30 <_Unwind_VRS_Set+0x44>
+     d18:	e0800102 	add	r0, r0, r2, lsl #2
+     d1c:	e59d2000 	ldr	r2, [sp]
+     d20:	e5922000 	ldr	r2, [r2]
+     d24:	e5802004 	str	r2, [r0, #4]
+     d28:	e1a00003 	mov	r0, r3
+     d2c:	e12fff1e 	bx	lr
+     d30:	e3a00002 	mov	r0, #2	; 0x2
+     d34:	e12fff1e 	bx	lr
+     d38:	e5903000 	ldr	r3, [r0]
+     d3c:	e3130101 	tst	r3, #1073741824	; 0x40000000
+     d40:	13833102 	orrne	r3, r3, #-2147483648	; 0x80000000
+     d44:	03c33102 	biceq	r3, r3, #-2147483648	; 0x80000000
+     d48:	e0800003 	add	r0, r0, r3
+     d4c:	e12fff1e 	bx	lr
+
+00000d50 <_Unwind_GetCFA>:
+     d50:	e5900044 	ldr	r0, [r0, #68]
+     d54:	e12fff1e 	bx	lr
+
+00000d58 <_Unwind_Complete>:
+     d58:	e12fff1e 	bx	lr
+
+00000d5c <_Unwind_DeleteException>:
+     d5c:	e5903008 	ldr	r3, [r0, #8]
+     d60:	e92d4010 	push	{r4, lr}
+     d64:	e3530000 	cmp	r3, #0	; 0x0
+     d68:	e1a01000 	mov	r1, r0
+     d6c:	08bd8010 	popeq	{r4, pc}
+     d70:	e3a00001 	mov	r0, #1	; 0x1
+     d74:	e12fff33 	blx	r3
+     d78:	e8bd8010 	pop	{r4, pc}
+     d7c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     d80:	e591a04c 	ldr	sl, [r1, #76]
+     d84:	e24dd044 	sub	sp, sp, #68	; 0x44
+     d88:	e3530000 	cmp	r3, #0	; 0x0
+     d8c:	e58d3014 	str	r3, [sp, #20]
+     d90:	e2008003 	and	r8, r0, #3	; 0x3
+     d94:	e49a3004 	ldr	r3, [sl], #4
+     d98:	e2000008 	and	r0, r0, #8	; 0x8
+     d9c:	e1a04001 	mov	r4, r1
+     da0:	e1a06002 	mov	r6, r2
+     da4:	e58da030 	str	sl, [sp, #48]
+     da8:	e58d0020 	str	r0, [sp, #32]
+     dac:	1a000006 	bne	dcc <_Unwind_DeleteException+0x70>
+     db0:	e1a03403 	lsl	r3, r3, #8
+     db4:	e58d302c 	str	r3, [sp, #44]
+     db8:	e59d0014 	ldr	r0, [sp, #20]
+     dbc:	e3a03003 	mov	r3, #3	; 0x3
+     dc0:	e5cd3034 	strb	r3, [sp, #52]
+     dc4:	e5cd0035 	strb	r0, [sp, #53]
+     dc8:	ea000007 	b	dec <_Unwind_DeleteException+0x90>
+     dcc:	e1a02823 	lsr	r2, r3, #16
+     dd0:	e20220ff 	and	r2, r2, #255	; 0xff
+     dd4:	e1a03803 	lsl	r3, r3, #16
+     dd8:	e58d302c 	str	r3, [sp, #44]
+     ddc:	e08aa102 	add	sl, sl, r2, lsl #2
+     de0:	e3a03002 	mov	r3, #2	; 0x2
+     de4:	e5cd3034 	strb	r3, [sp, #52]
+     de8:	e5cd2035 	strb	r2, [sp, #53]
+     dec:	e594b050 	ldr	fp, [r4, #80]
+     df0:	e3580002 	cmp	r8, #2	; 0x2
+     df4:	0594a038 	ldreq	sl, [r4, #56]
+     df8:	e21bb001 	ands	fp, fp, #1	; 0x1
+     dfc:	13a0b000 	movne	fp, #0	; 0x0
+     e00:	1a0000de 	bne	1180 <_Unwind_DeleteException+0x424>
+     e04:	e2841058 	add	r1, r4, #88	; 0x58
+     e08:	e28d203c 	add	r2, sp, #60	; 0x3c
+     e0c:	e28d7038 	add	r7, sp, #56	; 0x38
+     e10:	e1a0900b 	mov	r9, fp
+     e14:	e58d1018 	str	r1, [sp, #24]
+     e18:	e58d201c 	str	r2, [sp, #28]
+     e1c:	ea00003d 	b	f18 <_Unwind_DeleteException+0x1bc>
+     e20:	e59d0014 	ldr	r0, [sp, #20]
+     e24:	e594e048 	ldr	lr, [r4, #72]
+     e28:	e3500002 	cmp	r0, #2	; 0x2
+     e2c:	11d3a0b2 	ldrhne	sl, [r3, #2]
+     e30:	058da010 	streq	sl, [sp, #16]
+     e34:	0593a004 	ldreq	sl, [r3, #4]
+     e38:	11d310b0 	ldrhne	r1, [r3]
+     e3c:	158d1010 	strne	r1, [sp, #16]
+     e40:	e3cac001 	bic	ip, sl, #1	; 0x1
+     e44:	e3a01000 	mov	r1, #0	; 0x0
+     e48:	02835008 	addeq	r5, r3, #8	; 0x8
+     e4c:	12835004 	addne	r5, r3, #4	; 0x4
+     e50:	e08cc00e 	add	ip, ip, lr
+     e54:	e1a03001 	mov	r3, r1
+     e58:	e1a00006 	mov	r0, r6
+     e5c:	e3a0200f 	mov	r2, #15	; 0xf
+     e60:	e58dc00c 	str	ip, [sp, #12]
+     e64:	e58d7000 	str	r7, [sp]
+     e68:	ebffff8c 	bl	ca0 <_Unwind_VRS_Get>
+     e6c:	e59d3038 	ldr	r3, [sp, #56]
+     e70:	e59dc00c 	ldr	ip, [sp, #12]
+     e74:	e15c0003 	cmp	ip, r3
+     e78:	83a03000 	movhi	r3, #0	; 0x0
+     e7c:	8a000005 	bhi	e98 <_Unwind_DeleteException+0x13c>
+     e80:	e59d0010 	ldr	r0, [sp, #16]
+     e84:	e3c02001 	bic	r2, r0, #1	; 0x1
+     e88:	e08cc002 	add	ip, ip, r2
+     e8c:	e153000c 	cmp	r3, ip
+     e90:	23a03000 	movcs	r3, #0	; 0x0
+     e94:	33a03001 	movcc	r3, #1	; 0x1
+     e98:	e59d1010 	ldr	r1, [sp, #16]
+     e9c:	e20aa001 	and	sl, sl, #1	; 0x1
+     ea0:	e2012001 	and	r2, r1, #1	; 0x1
+     ea4:	e182a08a 	orr	sl, r2, sl, lsl #1
+     ea8:	e35a0001 	cmp	sl, #1	; 0x1
+     eac:	0a00001b 	beq	f20 <_Unwind_DeleteException+0x1c4>
+     eb0:	3a000002 	bcc	ec0 <_Unwind_DeleteException+0x164>
+     eb4:	e35a0002 	cmp	sl, #2	; 0x2
+     eb8:	1a0000d0 	bne	1200 <_Unwind_DeleteException+0x4a4>
+     ebc:	ea00004b 	b	ff0 <_Unwind_DeleteException+0x294>
+     ec0:	e3580000 	cmp	r8, #0	; 0x0
+     ec4:	03a03000 	moveq	r3, #0	; 0x0
+     ec8:	12033001 	andne	r3, r3, #1	; 0x1
+     ecc:	e3530000 	cmp	r3, #0	; 0x0
+     ed0:	e285a004 	add	sl, r5, #4	; 0x4
+     ed4:	0a00000f 	beq	f18 <_Unwind_DeleteException+0x1bc>
+     ed8:	e1a00005 	mov	r0, r5
+     edc:	ebffff95 	bl	d38 <_Unwind_VRS_Set+0x4c>
+     ee0:	e584a038 	str	sl, [r4, #56]
+     ee4:	e1a05000 	mov	r5, r0
+     ee8:	e1a00004 	mov	r0, r4
+     eec:	ebffff35 	bl	bc8 <begopen-0x60>
+     ef0:	e3500000 	cmp	r0, #0	; 0x0
+     ef4:	0a0000c1 	beq	1200 <_Unwind_DeleteException+0x4a4>
+     ef8:	e28dc040 	add	ip, sp, #64	; 0x40
+     efc:	e3a01000 	mov	r1, #0	; 0x0
+     f00:	e52c5008 	str	r5, [ip, #-8]!
+     f04:	e1a00006 	mov	r0, r6
+     f08:	e3a0200f 	mov	r2, #15	; 0xf
+     f0c:	e1a03001 	mov	r3, r1
+     f10:	e58dc000 	str	ip, [sp]
+     f14:	ea0000b6 	b	11f4 <_Unwind_DeleteException+0x498>
+     f18:	e1a0300a 	mov	r3, sl
+     f1c:	ea000094 	b	1174 <_Unwind_DeleteException+0x418>
+     f20:	e3580000 	cmp	r8, #0	; 0x0
+     f24:	1a000017 	bne	f88 <_Unwind_DeleteException+0x22c>
+     f28:	e3530000 	cmp	r3, #0	; 0x0
+     f2c:	0a00002d 	beq	fe8 <_Unwind_DeleteException+0x28c>
+     f30:	e5953004 	ldr	r3, [r5, #4]
+     f34:	e1a01005 	mov	r1, r5
+     f38:	e3730002 	cmn	r3, #2	; 0x2
+     f3c:	e4912004 	ldr	r2, [r1], #4
+     f40:	0a0000ae 	beq	1200 <_Unwind_DeleteException+0x4a4>
+     f44:	e59d0018 	ldr	r0, [sp, #24]
+     f48:	e3730001 	cmn	r3, #1	; 0x1
+     f4c:	e58d003c 	str	r0, [sp, #60]
+     f50:	0a000008 	beq	f78 <_Unwind_DeleteException+0x21c>
+     f54:	e3530000 	cmp	r3, #0	; 0x0
+     f58:	17911003 	ldrne	r1, [r1, r3]
+     f5c:	01a01008 	moveq	r1, r8
+     f60:	e1a02fa2 	lsr	r2, r2, #31
+     f64:	e1a00004 	mov	r0, r4
+     f68:	e59d301c 	ldr	r3, [sp, #28]
+     f6c:	ebffff1e 	bl	bec <begopen-0x3c>
+     f70:	e3500000 	cmp	r0, #0	; 0x0
+     f74:	058d003c 	streq	r0, [sp, #60]
+     f78:	e59d303c 	ldr	r3, [sp, #60]
+     f7c:	e3530000 	cmp	r3, #0	; 0x0
+     f80:	0a000018 	beq	fe8 <_Unwind_DeleteException+0x28c>
+     f84:	ea00003a 	b	1074 <_Unwind_DeleteException+0x318>
+     f88:	e3a01000 	mov	r1, #0	; 0x0
+     f8c:	e1a03001 	mov	r3, r1
+     f90:	e1a00006 	mov	r0, r6
+     f94:	e3a0200d 	mov	r2, #13	; 0xd
+     f98:	e58d7000 	str	r7, [sp]
+     f9c:	e594a020 	ldr	sl, [r4, #32]
+     fa0:	ebffff3e 	bl	ca0 <_Unwind_VRS_Get>
+     fa4:	e59d3038 	ldr	r3, [sp, #56]
+     fa8:	e15a0003 	cmp	sl, r3
+     fac:	1a00000d 	bne	fe8 <_Unwind_DeleteException+0x28c>
+     fb0:	e5943028 	ldr	r3, [r4, #40]
+     fb4:	e1550003 	cmp	r5, r3
+     fb8:	1a00000a 	bne	fe8 <_Unwind_DeleteException+0x28c>
+     fbc:	e1a00005 	mov	r0, r5
+     fc0:	ebffff5c 	bl	d38 <_Unwind_VRS_Set+0x4c>
+     fc4:	e3a01000 	mov	r1, #0	; 0x0
+     fc8:	e1a03001 	mov	r3, r1
+     fcc:	e3a0200f 	mov	r2, #15	; 0xf
+     fd0:	e58d7000 	str	r7, [sp]
+     fd4:	e58d0038 	str	r0, [sp, #56]
+     fd8:	e1a00006 	mov	r0, r6
+     fdc:	ebffff42 	bl	cec <_Unwind_VRS_Set>
+     fe0:	e3a01000 	mov	r1, #0	; 0x0
+     fe4:	ea000053 	b	1138 <_Unwind_DeleteException+0x3dc>
+     fe8:	e2853008 	add	r3, r5, #8	; 0x8
+     fec:	ea000060 	b	1174 <_Unwind_DeleteException+0x418>
+     ff0:	e595a000 	ldr	sl, [r5]
+     ff4:	e3580000 	cmp	r8, #0	; 0x0
+     ff8:	e3caa102 	bic	sl, sl, #-2147483648	; 0x80000000
+     ffc:	1a00002a 	bne	10ac <_Unwind_DeleteException+0x350>
+    1000:	e3530000 	cmp	r3, #0	; 0x0
+    1004:	0a000055 	beq	1160 <_Unwind_DeleteException+0x404>
+    1008:	e59d1020 	ldr	r1, [sp, #32]
+    100c:	e3510000 	cmp	r1, #0	; 0x0
+    1010:	135a0000 	cmpne	sl, #0	; 0x0
+    1014:	1a000051 	bne	1160 <_Unwind_DeleteException+0x404>
+    1018:	e58d8010 	str	r8, [sp, #16]
+    101c:	e58d8024 	str	r8, [sp, #36]
+    1020:	e1a08005 	mov	r8, r5
+    1024:	ea00000e 	b	1064 <_Unwind_DeleteException+0x308>
+    1028:	e5b53004 	ldr	r3, [r5, #4]!
+    102c:	e59d0010 	ldr	r0, [sp, #16]
+    1030:	e3530000 	cmp	r3, #0	; 0x0
+    1034:	e59d2018 	ldr	r2, [sp, #24]
+    1038:	e2800001 	add	r0, r0, #1	; 0x1
+    103c:	e1a01003 	mov	r1, r3
+    1040:	e58d203c 	str	r2, [sp, #60]
+    1044:	17951003 	ldrne	r1, [r5, r3]
+    1048:	e58d0010 	str	r0, [sp, #16]
+    104c:	e3a02000 	mov	r2, #0	; 0x0
+    1050:	e1a00004 	mov	r0, r4
+    1054:	e59d301c 	ldr	r3, [sp, #28]
+    1058:	ebfffee3 	bl	bec <begopen-0x3c>
+    105c:	e3500000 	cmp	r0, #0	; 0x0
+    1060:	1a00003c 	bne	1158 <_Unwind_DeleteException+0x3fc>
+    1064:	e59d1010 	ldr	r1, [sp, #16]
+    1068:	e151000a 	cmp	r1, sl
+    106c:	1affffed 	bne	1028 <_Unwind_DeleteException+0x2cc>
+    1070:	e1a05008 	mov	r5, r8
+    1074:	e3a01000 	mov	r1, #0	; 0x0
+    1078:	e1a03001 	mov	r3, r1
+    107c:	e28dc038 	add	ip, sp, #56	; 0x38
+    1080:	e1a00006 	mov	r0, r6
+    1084:	e3a0200d 	mov	r2, #13	; 0xd
+    1088:	e58dc000 	str	ip, [sp]
+    108c:	ebffff03 	bl	ca0 <_Unwind_VRS_Get>
+    1090:	e5845028 	str	r5, [r4, #40]
+    1094:	e59d3038 	ldr	r3, [sp, #56]
+    1098:	e5843020 	str	r3, [r4, #32]
+    109c:	e59d303c 	ldr	r3, [sp, #60]
+    10a0:	e5843024 	str	r3, [r4, #36]
+    10a4:	e3a00006 	mov	r0, #6	; 0x6
+    10a8:	ea000055 	b	1204 <_Unwind_DeleteException+0x4a8>
+    10ac:	e3a01000 	mov	r1, #0	; 0x0
+    10b0:	e1a03001 	mov	r3, r1
+    10b4:	e58d7000 	str	r7, [sp]
+    10b8:	e1a00006 	mov	r0, r6
+    10bc:	e594c020 	ldr	ip, [r4, #32]
+    10c0:	e3a0200d 	mov	r2, #13	; 0xd
+    10c4:	e58dc00c 	str	ip, [sp, #12]
+    10c8:	ebfffef4 	bl	ca0 <_Unwind_VRS_Get>
+    10cc:	e59d3038 	ldr	r3, [sp, #56]
+    10d0:	e59dc00c 	ldr	ip, [sp, #12]
+    10d4:	e15c0003 	cmp	ip, r3
+    10d8:	1a000020 	bne	1160 <_Unwind_DeleteException+0x404>
+    10dc:	e5943028 	ldr	r3, [r4, #40]
+    10e0:	e1550003 	cmp	r5, r3
+    10e4:	1a00001d 	bne	1160 <_Unwind_DeleteException+0x404>
+    10e8:	e2853004 	add	r3, r5, #4	; 0x4
+    10ec:	e3a02004 	mov	r2, #4	; 0x4
+    10f0:	e5843034 	str	r3, [r4, #52]
+    10f4:	e584a028 	str	sl, [r4, #40]
+    10f8:	e584902c 	str	r9, [r4, #44]
+    10fc:	e5842030 	str	r2, [r4, #48]
+    1100:	e5953000 	ldr	r3, [r5]
+    1104:	e3530000 	cmp	r3, #0	; 0x0
+    1108:	ba000010 	blt	1150 <_Unwind_DeleteException+0x3f4>
+    110c:	e28a0001 	add	r0, sl, #1	; 0x1
+    1110:	e0850100 	add	r0, r5, r0, lsl #2
+    1114:	ebffff07 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    1118:	e1a01009 	mov	r1, r9
+    111c:	e3a0200f 	mov	r2, #15	; 0xf
+    1120:	e1a03009 	mov	r3, r9
+    1124:	e58d7000 	str	r7, [sp]
+    1128:	e58d0038 	str	r0, [sp, #56]
+    112c:	e1a00006 	mov	r0, r6
+    1130:	ebfffeed 	bl	cec <_Unwind_VRS_Set>
+    1134:	e1a01009 	mov	r1, r9
+    1138:	e1a00006 	mov	r0, r6
+    113c:	e1a02001 	mov	r2, r1
+    1140:	e1a03001 	mov	r3, r1
+    1144:	e58d4038 	str	r4, [sp, #56]
+    1148:	e58d7000 	str	r7, [sp]
+    114c:	ea000028 	b	11f4 <_Unwind_DeleteException+0x498>
+    1150:	e3a0b001 	mov	fp, #1	; 0x1
+    1154:	ea000001 	b	1160 <_Unwind_DeleteException+0x404>
+    1158:	e1a05008 	mov	r5, r8
+    115c:	e59d8024 	ldr	r8, [sp, #36]
+    1160:	e5953000 	ldr	r3, [r5]
+    1164:	e28aa001 	add	sl, sl, #1	; 0x1
+    1168:	e3530000 	cmp	r3, #0	; 0x0
+    116c:	b2855004 	addlt	r5, r5, #4	; 0x4
+    1170:	e085310a 	add	r3, r5, sl, lsl #2
+    1174:	e593a000 	ldr	sl, [r3]
+    1178:	e35a0000 	cmp	sl, #0	; 0x0
+    117c:	1affff27 	bne	e20 <_Unwind_DeleteException+0xc4>
+    1180:	e1a00006 	mov	r0, r6
+    1184:	e28d102c 	add	r1, sp, #44	; 0x2c
+    1188:	eb000312 	bl	1dd8 <__gnu_unwind_execute>
+    118c:	e2504000 	subs	r4, r0, #0	; 0x0
+    1190:	1a00001a 	bne	1200 <_Unwind_DeleteException+0x4a4>
+    1194:	e35b0000 	cmp	fp, #0	; 0x0
+    1198:	02800008 	addeq	r0, r0, #8	; 0x8
+    119c:	0a000018 	beq	1204 <_Unwind_DeleteException+0x4a8>
+    11a0:	e28d5038 	add	r5, sp, #56	; 0x38
+    11a4:	e1a01004 	mov	r1, r4
+    11a8:	e3a0200f 	mov	r2, #15	; 0xf
+    11ac:	e1a03004 	mov	r3, r4
+    11b0:	e1a00006 	mov	r0, r6
+    11b4:	e58d5000 	str	r5, [sp]
+    11b8:	ebfffeb8 	bl	ca0 <_Unwind_VRS_Get>
+    11bc:	e1a01004 	mov	r1, r4
+    11c0:	e3a0200e 	mov	r2, #14	; 0xe
+    11c4:	e1a03004 	mov	r3, r4
+    11c8:	e1a00006 	mov	r0, r6
+    11cc:	e58d5000 	str	r5, [sp]
+    11d0:	ebfffec5 	bl	cec <_Unwind_VRS_Set>
+    11d4:	e59fc030 	ldr	ip, [pc, #48]	; 120c <_Unwind_DeleteException+0x4b0>
+    11d8:	e1a01004 	mov	r1, r4
+    11dc:	e79fc00c 	ldr	ip, [pc, ip]
+    11e0:	e1a00006 	mov	r0, r6
+    11e4:	e3a0200f 	mov	r2, #15	; 0xf
+    11e8:	e1a03004 	mov	r3, r4
+    11ec:	e58dc038 	str	ip, [sp, #56]
+    11f0:	e58d5000 	str	r5, [sp]
+    11f4:	ebfffebc 	bl	cec <_Unwind_VRS_Set>
+    11f8:	e3a00007 	mov	r0, #7	; 0x7
+    11fc:	ea000000 	b	1204 <_Unwind_DeleteException+0x4a8>
+    1200:	e3a00009 	mov	r0, #9	; 0x9
+    1204:	e28dd044 	add	sp, sp, #68	; 0x44
+    1208:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    120c:	000021d4 	ldrdeq	r2, [r0], -r4
+
+00001210 <__aeabi_unwind_cpp_pr2>:
+    1210:	e3a03002 	mov	r3, #2	; 0x2
+    1214:	eafffed8 	b	d7c <_Unwind_DeleteException+0x20>
+
+00001218 <__aeabi_unwind_cpp_pr1>:
+    1218:	e3a03001 	mov	r3, #1	; 0x1
+    121c:	eafffed6 	b	d7c <_Unwind_DeleteException+0x20>
+
+00001220 <__aeabi_unwind_cpp_pr0>:
+    1220:	e3a03000 	mov	r3, #0	; 0x0
+    1224:	eafffed4 	b	d7c <_Unwind_DeleteException+0x20>
+    1228:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    122c:	e59f51a8 	ldr	r5, [pc, #424]	; 13dc <__aeabi_unwind_cpp_pr0+0x1bc>
+    1230:	e59f31a8 	ldr	r3, [pc, #424]	; 13e0 <__aeabi_unwind_cpp_pr0+0x1c0>
+    1234:	e08f5005 	add	r5, pc, r5
+    1238:	e7953003 	ldr	r3, [r5, r3]
+    123c:	e24dd014 	sub	sp, sp, #20	; 0x14
+    1240:	e3530000 	cmp	r3, #0	; 0x0
+    1244:	e1a04000 	mov	r4, r0
+    1248:	e2416002 	sub	r6, r1, #2	; 0x2
+    124c:	0a000008 	beq	1274 <__aeabi_unwind_cpp_pr0+0x54>
+    1250:	e1a00006 	mov	r0, r6
+    1254:	e28d100c 	add	r1, sp, #12	; 0xc
+    1258:	ebfffe6c 	bl	c10 <begopen-0x18>
+    125c:	e3500000 	cmp	r0, #0	; 0x0
+    1260:	e1a09000 	mov	r9, r0
+    1264:	05840010 	streq	r0, [r4, #16]
+    1268:	03a03009 	moveq	r3, #9	; 0x9
+    126c:	1a000007 	bne	1290 <__aeabi_unwind_cpp_pr0+0x70>
+    1270:	ea000056 	b	13d0 <__aeabi_unwind_cpp_pr0+0x1b0>
+    1274:	e59f3168 	ldr	r3, [pc, #360]	; 13e4 <__aeabi_unwind_cpp_pr0+0x1c4>
+    1278:	e59f2168 	ldr	r2, [pc, #360]	; 13e8 <__aeabi_unwind_cpp_pr0+0x1c8>
+    127c:	e7953003 	ldr	r3, [r5, r3]
+    1280:	e7959002 	ldr	r9, [r5, r2]
+    1284:	e0693003 	rsb	r3, r9, r3
+    1288:	e1a031c3 	asr	r3, r3, #3
+    128c:	e58d300c 	str	r3, [sp, #12]
+    1290:	e59d300c 	ldr	r3, [sp, #12]
+    1294:	e3530000 	cmp	r3, #0	; 0x0
+    1298:	0a000045 	beq	13b4 <__aeabi_unwind_cpp_pr0+0x194>
+    129c:	e2433001 	sub	r3, r3, #1	; 0x1
+    12a0:	e1a0b003 	mov	fp, r3
+    12a4:	e3a0a000 	mov	sl, #0	; 0x0
+    12a8:	e58d3004 	str	r3, [sp, #4]
+    12ac:	e08b700a 	add	r7, fp, sl
+    12b0:	e0877fa7 	add	r7, r7, r7, lsr #31
+    12b4:	e1a070c7 	asr	r7, r7, #1
+    12b8:	e0898187 	add	r8, r9, r7, lsl #3
+    12bc:	e1a00008 	mov	r0, r8
+    12c0:	ebfffe9c 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    12c4:	e59d3004 	ldr	r3, [sp, #4]
+    12c8:	e1570003 	cmp	r7, r3
+    12cc:	e3e03000 	mvn	r3, #0	; 0x0
+    12d0:	e1a02000 	mov	r2, r0
+    12d4:	e2870001 	add	r0, r7, #1	; 0x1
+    12d8:	e0890180 	add	r0, r9, r0, lsl #3
+    12dc:	0a000003 	beq	12f0 <__aeabi_unwind_cpp_pr0+0xd0>
+    12e0:	e58d2000 	str	r2, [sp]
+    12e4:	ebfffe93 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    12e8:	e59d2000 	ldr	r2, [sp]
+    12ec:	e2403001 	sub	r3, r0, #1	; 0x1
+    12f0:	e1560002 	cmp	r6, r2
+    12f4:	2a000003 	bcs	1308 <__aeabi_unwind_cpp_pr0+0xe8>
+    12f8:	e157000a 	cmp	r7, sl
+    12fc:	e247b001 	sub	fp, r7, #1	; 0x1
+    1300:	1affffe9 	bne	12ac <__aeabi_unwind_cpp_pr0+0x8c>
+    1304:	ea00002a 	b	13b4 <__aeabi_unwind_cpp_pr0+0x194>
+    1308:	e1560003 	cmp	r6, r3
+    130c:	e287a001 	add	sl, r7, #1	; 0x1
+    1310:	8affffe5 	bhi	12ac <__aeabi_unwind_cpp_pr0+0x8c>
+    1314:	e3580000 	cmp	r8, #0	; 0x0
+    1318:	0a000025 	beq	13b4 <__aeabi_unwind_cpp_pr0+0x194>
+    131c:	e1a00008 	mov	r0, r8
+    1320:	ebfffe84 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    1324:	e5840048 	str	r0, [r4, #72]
+    1328:	e5983004 	ldr	r3, [r8, #4]
+    132c:	e3530001 	cmp	r3, #1	; 0x1
+    1330:	03a03000 	moveq	r3, #0	; 0x0
+    1334:	05843010 	streq	r3, [r4, #16]
+    1338:	02833005 	addeq	r3, r3, #5	; 0x5
+    133c:	0a000023 	beq	13d0 <__aeabi_unwind_cpp_pr0+0x1b0>
+    1340:	e3530000 	cmp	r3, #0	; 0x0
+    1344:	e2880004 	add	r0, r8, #4	; 0x4
+    1348:	b3a03001 	movlt	r3, #1	; 0x1
+    134c:	b584004c 	strlt	r0, [r4, #76]
+    1350:	b5843050 	strlt	r3, [r4, #80]
+    1354:	ba000003 	blt	1368 <__aeabi_unwind_cpp_pr0+0x148>
+    1358:	ebfffe76 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    135c:	e3a03000 	mov	r3, #0	; 0x0
+    1360:	e5843050 	str	r3, [r4, #80]
+    1364:	e584004c 	str	r0, [r4, #76]
+    1368:	e594004c 	ldr	r0, [r4, #76]
+    136c:	e5903000 	ldr	r3, [r0]
+    1370:	e3530000 	cmp	r3, #0	; 0x0
+    1374:	aa000012 	bge	13c4 <__aeabi_unwind_cpp_pr0+0x1a4>
+    1378:	e1a03c23 	lsr	r3, r3, #24
+    137c:	e213300f 	ands	r3, r3, #15	; 0xf
+    1380:	059f2064 	ldreq	r2, [pc, #100]	; 13ec <__aeabi_unwind_cpp_pr0+0x1cc>
+    1384:	0a000007 	beq	13a8 <__aeabi_unwind_cpp_pr0+0x188>
+    1388:	e3530001 	cmp	r3, #1	; 0x1
+    138c:	03a03000 	moveq	r3, #0	; 0x0
+    1390:	059f2058 	ldreq	r2, [pc, #88]	; 13f0 <__aeabi_unwind_cpp_pr0+0x1d0>
+    1394:	0a000003 	beq	13a8 <__aeabi_unwind_cpp_pr0+0x188>
+    1398:	e3530002 	cmp	r3, #2	; 0x2
+    139c:	1a000004 	bne	13b4 <__aeabi_unwind_cpp_pr0+0x194>
+    13a0:	e59f204c 	ldr	r2, [pc, #76]	; 13f4 <__aeabi_unwind_cpp_pr0+0x1d4>
+    13a4:	e3a03000 	mov	r3, #0	; 0x0
+    13a8:	e7952002 	ldr	r2, [r5, r2]
+    13ac:	e5842010 	str	r2, [r4, #16]
+    13b0:	ea000006 	b	13d0 <__aeabi_unwind_cpp_pr0+0x1b0>
+    13b4:	e3a03000 	mov	r3, #0	; 0x0
+    13b8:	e5843010 	str	r3, [r4, #16]
+    13bc:	e2833009 	add	r3, r3, #9	; 0x9
+    13c0:	ea000002 	b	13d0 <__aeabi_unwind_cpp_pr0+0x1b0>
+    13c4:	ebfffe5b 	bl	d38 <_Unwind_VRS_Set+0x4c>
+    13c8:	e3a03000 	mov	r3, #0	; 0x0
+    13cc:	e5840010 	str	r0, [r4, #16]
+    13d0:	e1a00003 	mov	r0, r3
+    13d4:	e28dd014 	add	sp, sp, #20	; 0x14
+    13d8:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    13dc:	00002144 	andeq	r2, r0, r4, asr #2
+    13e0:	00000044 	andeq	r0, r0, r4, asr #32
+    13e4:	00000030 	andeq	r0, r0, r0, lsr r0
+    13e8:	00000040 	andeq	r0, r0, r0, asr #32
+    13ec:	00000034 	andeq	r0, r0, r4, lsr r0
+    13f0:	00000048 	andeq	r0, r0, r8, asr #32
+    13f4:	0000003c 	andeq	r0, r0, ip, lsr r0
+    13f8:	e5903000 	ldr	r3, [r0]
+    13fc:	e92d4010 	push	{r4, lr}
+    1400:	e3130001 	tst	r3, #1	; 0x1
+    1404:	e1a04000 	mov	r4, r0
+    1408:	1a000005 	bne	1424 <__aeabi_unwind_cpp_pr0+0x204>
+    140c:	e3130002 	tst	r3, #2	; 0x2
+    1410:	e2800048 	add	r0, r0, #72	; 0x48
+    1414:	0a000001 	beq	1420 <__aeabi_unwind_cpp_pr0+0x200>
+    1418:	eb0001da 	bl	1b88 <__gnu_Unwind_Restore_VFP_D>
+    141c:	ea000000 	b	1424 <__aeabi_unwind_cpp_pr0+0x204>
+    1420:	eb0001d4 	bl	1b78 <__gnu_Unwind_Restore_VFP>
+    1424:	e5943000 	ldr	r3, [r4]
+    1428:	e3130004 	tst	r3, #4	; 0x4
+    142c:	1a000001 	bne	1438 <__aeabi_unwind_cpp_pr0+0x218>
+    1430:	e28400d0 	add	r0, r4, #208	; 0xd0
+    1434:	eb0001d7 	bl	1b98 <__gnu_Unwind_Restore_VFP_D_16_to_31>
+    1438:	e5943000 	ldr	r3, [r4]
+    143c:	e3130008 	tst	r3, #8	; 0x8
+    1440:	1a000001 	bne	144c <__aeabi_unwind_cpp_pr0+0x22c>
+    1444:	e2840e1b 	add	r0, r4, #432	; 0x1b0
+    1448:	eb0001d6 	bl	1ba8 <__gnu_Unwind_Restore_WMMXD>
+    144c:	e5943000 	ldr	r3, [r4]
+    1450:	e3130010 	tst	r3, #16	; 0x10
+    1454:	18bd8010 	popne	{r4, pc}
+    1458:	e2840e23 	add	r0, r4, #560	; 0x230
+    145c:	e8bd4010 	pop	{r4, lr}
+    1460:	ea0001f2 	b	1c30 <__gnu_Unwind_Restore_WMMXC>
+
+00001464 <__gnu_Unwind_Backtrace>:
+    1464:	e92d45f0 	push	{r4, r5, r6, r7, r8, sl, lr}
+    1468:	e592303c 	ldr	r3, [r2, #60]
+    146c:	e282e004 	add	lr, r2, #4	; 0x4
+    1470:	e5823040 	str	r3, [r2, #64]
+    1474:	e1a07000 	mov	r7, r0
+    1478:	e1a06001 	mov	r6, r1
+    147c:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1480:	e24ddfab 	sub	sp, sp, #684	; 0x2ac
+    1484:	e28dc00c 	add	ip, sp, #12	; 0xc
+    1488:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    148c:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1490:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    1494:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1498:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    149c:	e89e000f 	ldm	lr, {r0, r1, r2, r3}
+    14a0:	e28d5f92 	add	r5, sp, #584	; 0x248
+    14a4:	e88c000f 	stm	ip, {r0, r1, r2, r3}
+    14a8:	e28d4008 	add	r4, sp, #8	; 0x8
+    14ac:	e3e03000 	mvn	r3, #0	; 0x0
+    14b0:	e28d8fa9 	add	r8, sp, #676	; 0x2a4
+    14b4:	e58d3008 	str	r3, [sp, #8]
+    14b8:	e59d1048 	ldr	r1, [sp, #72]
+    14bc:	e1a00005 	mov	r0, r5
+    14c0:	ebffff58 	bl	1228 <__aeabi_unwind_cpp_pr0+0x8>
+    14c4:	e3a0200c 	mov	r2, #12	; 0xc
+    14c8:	e2501000 	subs	r1, r0, #0	; 0x0
+    14cc:	e1a03001 	mov	r3, r1
+    14d0:	e1a00004 	mov	r0, r4
+    14d4:	1a000011 	bne	1520 <__gnu_Unwind_Backtrace+0xbc>
+    14d8:	e58d52a4 	str	r5, [sp, #676]
+    14dc:	e58d8000 	str	r8, [sp]
+    14e0:	ebfffe01 	bl	cec <_Unwind_VRS_Set>
+    14e4:	e1a01006 	mov	r1, r6
+    14e8:	e1a00004 	mov	r0, r4
+    14ec:	e12fff37 	blx	r7
+    14f0:	e1a01005 	mov	r1, r5
+    14f4:	e1a02004 	mov	r2, r4
+    14f8:	e3500000 	cmp	r0, #0	; 0x0
+    14fc:	e3a00008 	mov	r0, #8	; 0x8
+    1500:	1a000006 	bne	1520 <__gnu_Unwind_Backtrace+0xbc>
+    1504:	e1a0e00f 	mov	lr, pc
+    1508:	e59df258 	ldr	pc, [sp, #600]
+    150c:	e3500009 	cmp	r0, #9	; 0x9
+    1510:	13500005 	cmpne	r0, #5	; 0x5
+    1514:	e1a0a000 	mov	sl, r0
+    1518:	1affffe6 	bne	14b8 <__gnu_Unwind_Backtrace+0x54>
+    151c:	ea000000 	b	1524 <__gnu_Unwind_Backtrace+0xc0>
+    1520:	e3a0a009 	mov	sl, #9	; 0x9
+    1524:	e28d0008 	add	r0, sp, #8	; 0x8
+    1528:	ebffffb2 	bl	13f8 <__aeabi_unwind_cpp_pr0+0x1d8>
+    152c:	e1a0000a 	mov	r0, sl
+    1530:	e28ddfab 	add	sp, sp, #684	; 0x2ac
+    1534:	e8bd85f0 	pop	{r4, r5, r6, r7, r8, sl, pc}
+    1538:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    153c:	e281e004 	add	lr, r1, #4	; 0x4
+    1540:	e1a04000 	mov	r4, r0
+    1544:	e24ddd12 	sub	sp, sp, #1152	; 0x480
+    1548:	e1a05002 	mov	r5, r2
+    154c:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1550:	e24dd00c 	sub	sp, sp, #12	; 0xc
+    1554:	e28dcf93 	add	ip, sp, #588	; 0x24c
+    1558:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    155c:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1560:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    1564:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    1568:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    156c:	e89e000f 	ldm	lr, {r0, r1, r2, r3}
+    1570:	e3a0e000 	mov	lr, #0	; 0x0
+    1574:	e1a0800e 	mov	r8, lr
+    1578:	e28d7008 	add	r7, sp, #8	; 0x8
+    157c:	e28d6f92 	add	r6, sp, #584	; 0x248
+    1580:	e594900c 	ldr	r9, [r4, #12]
+    1584:	e594b018 	ldr	fp, [r4, #24]
+    1588:	e88c000f 	stm	ip, {r0, r1, r2, r3}
+    158c:	e58de248 	str	lr, [sp, #584]
+    1590:	e1a00004 	mov	r0, r4
+    1594:	e59d1288 	ldr	r1, [sp, #648]
+    1598:	ebffff22 	bl	1228 <__aeabi_unwind_cpp_pr0+0x8>
+    159c:	e3550000 	cmp	r5, #0	; 0x0
+    15a0:	03a0a009 	moveq	sl, #9	; 0x9
+    15a4:	13a0a00a 	movne	sl, #10	; 0xa
+    15a8:	e2505000 	subs	r5, r0, #0	; 0x0
+    15ac:	138aa010 	orrne	sl, sl, #16	; 0x10
+    15b0:	159d3280 	ldrne	r3, [sp, #640]
+    15b4:	1a00000c 	bne	15ec <__gnu_Unwind_Backtrace+0x188>
+    15b8:	e59d3288 	ldr	r3, [sp, #648]
+    15bc:	e5843014 	str	r3, [r4, #20]
+    15c0:	e1a01006 	mov	r1, r6
+    15c4:	e3a02d09 	mov	r2, #576	; 0x240
+    15c8:	e1a00007 	mov	r0, r7
+    15cc:	ebfffd80 	bl	bd4 <begopen-0x54>
+    15d0:	e1a0000a 	mov	r0, sl
+    15d4:	e1a01004 	mov	r1, r4
+    15d8:	e1a02007 	mov	r2, r7
+    15dc:	e1a0e00f 	mov	lr, pc
+    15e0:	e594f010 	ldr	pc, [r4, #16]
+    15e4:	e59d3040 	ldr	r3, [sp, #64]
+    15e8:	e1a08000 	mov	r8, r0
+    15ec:	e58d328c 	str	r3, [sp, #652]
+    15f0:	e88d0840 	stm	sp, {r6, fp}
+    15f4:	e1a0100a 	mov	r1, sl
+    15f8:	e3a00001 	mov	r0, #1	; 0x1
+    15fc:	e1a02004 	mov	r2, r4
+    1600:	e1a03004 	mov	r3, r4
+    1604:	e12fff39 	blx	r9
+    1608:	e3500000 	cmp	r0, #0	; 0x0
+    160c:	1a00000b 	bne	1640 <__gnu_Unwind_Backtrace+0x1dc>
+    1610:	e3550000 	cmp	r5, #0	; 0x0
+    1614:	1a00000a 	bne	1644 <__gnu_Unwind_Backtrace+0x1e0>
+    1618:	e1a00006 	mov	r0, r6
+    161c:	e1a01007 	mov	r1, r7
+    1620:	e3a02d09 	mov	r2, #576	; 0x240
+    1624:	ebfffd6a 	bl	bd4 <begopen-0x54>
+    1628:	e3580008 	cmp	r8, #8	; 0x8
+    162c:	0affffd7 	beq	1590 <__gnu_Unwind_Backtrace+0x12c>
+    1630:	e3580007 	cmp	r8, #7	; 0x7
+    1634:	1a000001 	bne	1640 <__gnu_Unwind_Backtrace+0x1dc>
+    1638:	e28d0f93 	add	r0, sp, #588	; 0x24c
+    163c:	eb000148 	bl	1b64 <__restore_core_regs>
+    1640:	e3a05009 	mov	r5, #9	; 0x9
+    1644:	e1a00005 	mov	r0, r5
+    1648:	e28dd08c 	add	sp, sp, #140	; 0x8c
+    164c:	e28ddb01 	add	sp, sp, #1024	; 0x400
+    1650:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+00001654 <__gnu_Unwind_ForcedUnwind>:
+    1654:	e580100c 	str	r1, [r0, #12]
+    1658:	e5802018 	str	r2, [r0, #24]
+    165c:	e593203c 	ldr	r2, [r3, #60]
+    1660:	e5832040 	str	r2, [r3, #64]
+    1664:	e1a01003 	mov	r1, r3
+    1668:	e3a02000 	mov	r2, #0	; 0x0
+    166c:	eaffffb1 	b	1538 <__gnu_Unwind_Backtrace+0xd4>
+    1670:	e92d4070 	push	{r4, r5, r6, lr}
+    1674:	e1a05000 	mov	r5, r0
+    1678:	e1a04001 	mov	r4, r1
+    167c:	e1a00005 	mov	r0, r5
+    1680:	e5941040 	ldr	r1, [r4, #64]
+    1684:	ebfffee7 	bl	1228 <__aeabi_unwind_cpp_pr0+0x8>
+    1688:	e3500000 	cmp	r0, #0	; 0x0
+    168c:	1a00000a 	bne	16bc <__gnu_Unwind_ForcedUnwind+0x68>
+    1690:	e5943040 	ldr	r3, [r4, #64]
+    1694:	e5853014 	str	r3, [r5, #20]
+    1698:	e3a00001 	mov	r0, #1	; 0x1
+    169c:	e1a01005 	mov	r1, r5
+    16a0:	e1a02004 	mov	r2, r4
+    16a4:	e1a0e00f 	mov	lr, pc
+    16a8:	e595f010 	ldr	pc, [r5, #16]
+    16ac:	e3500008 	cmp	r0, #8	; 0x8
+    16b0:	0afffff1 	beq	167c <__gnu_Unwind_ForcedUnwind+0x28>
+    16b4:	e3500007 	cmp	r0, #7	; 0x7
+    16b8:	0a000000 	beq	16c0 <__gnu_Unwind_ForcedUnwind+0x6c>
+    16bc:	ebfffd47 	bl	be0 <begopen-0x48>
+    16c0:	e2840004 	add	r0, r4, #4	; 0x4
+    16c4:	eb000126 	bl	1b64 <__restore_core_regs>
+
+000016c8 <__gnu_Unwind_RaiseException>:
+    16c8:	e92d40f0 	push	{r4, r5, r6, r7, lr}
+    16cc:	e591303c 	ldr	r3, [r1, #60]
+    16d0:	e281e004 	add	lr, r1, #4	; 0x4
+    16d4:	e5813040 	str	r3, [r1, #64]
+    16d8:	e1a04001 	mov	r4, r1
+    16dc:	e1a05000 	mov	r5, r0
+    16e0:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    16e4:	e24ddf91 	sub	sp, sp, #580	; 0x244
+    16e8:	e28dc004 	add	ip, sp, #4	; 0x4
+    16ec:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    16f0:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    16f4:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    16f8:	e8be000f 	ldm	lr!, {r0, r1, r2, r3}
+    16fc:	e8ac000f 	stmia	ip!, {r0, r1, r2, r3}
+    1700:	e89e000f 	ldm	lr, {r0, r1, r2, r3}
+    1704:	e28d6d09 	add	r6, sp, #576	; 0x240
+    1708:	e88c000f 	stm	ip, {r0, r1, r2, r3}
+    170c:	e3e03000 	mvn	r3, #0	; 0x0
+    1710:	e5263240 	str	r3, [r6, #-576]!
+    1714:	e1a00005 	mov	r0, r5
+    1718:	e59d1040 	ldr	r1, [sp, #64]
+    171c:	ebfffec1 	bl	1228 <__aeabi_unwind_cpp_pr0+0x8>
+    1720:	e3500000 	cmp	r0, #0	; 0x0
+    1724:	1a00000d 	bne	1760 <__gnu_Unwind_RaiseException+0x98>
+    1728:	e1a01005 	mov	r1, r5
+    172c:	e1a0200d 	mov	r2, sp
+    1730:	e1a0e00f 	mov	lr, pc
+    1734:	e595f010 	ldr	pc, [r5, #16]
+    1738:	e3500008 	cmp	r0, #8	; 0x8
+    173c:	e1a07000 	mov	r7, r0
+    1740:	0afffff3 	beq	1714 <__gnu_Unwind_RaiseException+0x4c>
+    1744:	e1a0000d 	mov	r0, sp
+    1748:	ebffff2a 	bl	13f8 <__aeabi_unwind_cpp_pr0+0x1d8>
+    174c:	e3570006 	cmp	r7, #6	; 0x6
+    1750:	1a000002 	bne	1760 <__gnu_Unwind_RaiseException+0x98>
+    1754:	e1a00005 	mov	r0, r5
+    1758:	e1a01004 	mov	r1, r4
+    175c:	ebffffc3 	bl	1670 <__gnu_Unwind_ForcedUnwind+0x1c>
+    1760:	e3a00009 	mov	r0, #9	; 0x9
+    1764:	e28ddf91 	add	sp, sp, #580	; 0x244
+    1768:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}
+
+0000176c <__gnu_Unwind_Resume_or_Rethrow>:
+    176c:	e590200c 	ldr	r2, [r0, #12]
+    1770:	e3520000 	cmp	r2, #0	; 0x0
+    1774:	1a000000 	bne	177c <__gnu_Unwind_Resume_or_Rethrow+0x10>
+    1778:	eaffffd2 	b	16c8 <__gnu_Unwind_RaiseException>
+    177c:	e591203c 	ldr	r2, [r1, #60]
+    1780:	e5812040 	str	r2, [r1, #64]
+    1784:	e3a02000 	mov	r2, #0	; 0x0
+    1788:	eaffff6a 	b	1538 <__gnu_Unwind_Backtrace+0xd4>
+
+0000178c <__gnu_Unwind_Resume>:
+    178c:	e5903014 	ldr	r3, [r0, #20]
+    1790:	e5813040 	str	r3, [r1, #64]
+    1794:	e590300c 	ldr	r3, [r0, #12]
+    1798:	e92d4070 	push	{r4, r5, r6, lr}
+    179c:	e3530000 	cmp	r3, #0	; 0x0
+    17a0:	e1a04000 	mov	r4, r0
+    17a4:	e1a05001 	mov	r5, r1
+    17a8:	0a000002 	beq	17b8 <__gnu_Unwind_Resume+0x2c>
+    17ac:	e3a02001 	mov	r2, #1	; 0x1
+    17b0:	ebffff60 	bl	1538 <__gnu_Unwind_Backtrace+0xd4>
+    17b4:	ea00000e 	b	17f4 <__gnu_Unwind_Resume+0x68>
+    17b8:	e3a00002 	mov	r0, #2	; 0x2
+    17bc:	e1a01004 	mov	r1, r4
+    17c0:	e1a02005 	mov	r2, r5
+    17c4:	e1a0e00f 	mov	lr, pc
+    17c8:	e594f010 	ldr	pc, [r4, #16]
+    17cc:	e3500007 	cmp	r0, #7	; 0x7
+    17d0:	0a000002 	beq	17e0 <__gnu_Unwind_Resume+0x54>
+    17d4:	e3500008 	cmp	r0, #8	; 0x8
+    17d8:	1a000005 	bne	17f4 <__gnu_Unwind_Resume+0x68>
+    17dc:	ea000001 	b	17e8 <__gnu_Unwind_Resume+0x5c>
+    17e0:	e2850004 	add	r0, r5, #4	; 0x4
+    17e4:	eb0000de 	bl	1b64 <__restore_core_regs>
+    17e8:	e1a00004 	mov	r0, r4
+    17ec:	e1a01005 	mov	r1, r5
+    17f0:	ebffff9e 	bl	1670 <__gnu_Unwind_ForcedUnwind+0x1c>
+    17f4:	ebfffcf9 	bl	be0 <begopen-0x48>
+
+000017f8 <_Unwind_VRS_Pop>:
+    17f8:	e92d45f0 	push	{r4, r5, r6, r7, r8, sl, lr}
+    17fc:	e1a04000 	mov	r4, r0
+    1800:	e24ddf67 	sub	sp, sp, #412	; 0x19c
+    1804:	e1a05002 	mov	r5, r2
+    1808:	e3510004 	cmp	r1, #4	; 0x4
+    180c:	908ff101 	addls	pc, pc, r1, lsl #2
+    1810:	ea0000ce 	b	1b50 <_Unwind_VRS_Pop+0x358>
+    1814:	ea000005 	b	1830 <_Unwind_VRS_Pop+0x38>
+    1818:	ea000015 	b	1874 <_Unwind_VRS_Pop+0x7c>
+    181c:	ea000001 	b	1828 <_Unwind_VRS_Pop+0x30>
+    1820:	ea00008e 	b	1a60 <_Unwind_VRS_Pop+0x268>
+    1824:	ea0000b0 	b	1aec <_Unwind_VRS_Pop+0x2f4>
+    1828:	e3a00001 	mov	r0, #1	; 0x1
+    182c:	ea0000ca 	b	1b5c <_Unwind_VRS_Pop+0x364>
+    1830:	e3530000 	cmp	r3, #0	; 0x0
+    1834:	1a0000c5 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    1838:	e1a00802 	lsl	r0, r2, #16
+    183c:	e5942038 	ldr	r2, [r4, #56]
+    1840:	e1a00820 	lsr	r0, r0, #16
+    1844:	e3a01001 	mov	r1, #1	; 0x1
+    1848:	e010c311 	ands	ip, r0, r1, lsl r3
+    184c:	e084c103 	add	ip, r4, r3, lsl #2
+    1850:	14925004 	ldrne	r5, [r2], #4
+    1854:	e2833001 	add	r3, r3, #1	; 0x1
+    1858:	158c5004 	strne	r5, [ip, #4]
+    185c:	e3530010 	cmp	r3, #16	; 0x10
+    1860:	1afffff8 	bne	1848 <_Unwind_VRS_Pop+0x50>
+    1864:	e2100a02 	ands	r0, r0, #8192	; 0x2000
+    1868:	05842038 	streq	r2, [r4, #56]
+    186c:	0a0000ba 	beq	1b5c <_Unwind_VRS_Pop+0x364>
+    1870:	ea0000b8 	b	1b58 <_Unwind_VRS_Pop+0x360>
+    1874:	e2531005 	subs	r1, r3, #5	; 0x5
+    1878:	13a01001 	movne	r1, #1	; 0x1
+    187c:	e3530001 	cmp	r3, #1	; 0x1
+    1880:	13530005 	cmpne	r3, #5	; 0x5
+    1884:	1a0000b1 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    1888:	e1a08802 	lsl	r8, r2, #16
+    188c:	e3530001 	cmp	r3, #1	; 0x1
+    1890:	e1a08828 	lsr	r8, r8, #16
+    1894:	e1a05822 	lsr	r5, r2, #16
+    1898:	03a00010 	moveq	r0, #16	; 0x10
+    189c:	13a00020 	movne	r0, #32	; 0x20
+    18a0:	e0882005 	add	r2, r8, r5
+    18a4:	e1520000 	cmp	r2, r0
+    18a8:	8a0000a8 	bhi	1b50 <_Unwind_VRS_Pop+0x358>
+    18ac:	e3530001 	cmp	r3, #1	; 0x1
+    18b0:	13a07000 	movne	r7, #0	; 0x0
+    18b4:	03a07001 	moveq	r7, #1	; 0x1
+    18b8:	e355000f 	cmp	r5, #15	; 0xf
+    18bc:	93a06000 	movls	r6, #0	; 0x0
+    18c0:	83a06001 	movhi	r6, #1	; 0x1
+    18c4:	e1160007 	tst	r6, r7
+    18c8:	1a0000a0 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    18cc:	e3560000 	cmp	r6, #0	; 0x0
+    18d0:	11a06008 	movne	r6, r8
+    18d4:	1a000001 	bne	18e0 <_Unwind_VRS_Pop+0xe8>
+    18d8:	e3520010 	cmp	r2, #16	; 0x10
+    18dc:	82426010 	subhi	r6, r2, #16	; 0x10
+    18e0:	e256a000 	subs	sl, r6, #0	; 0x0
+    18e4:	13a0a001 	movne	sl, #1	; 0x1
+    18e8:	e11a0001 	tst	sl, r1
+    18ec:	1a000097 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    18f0:	e355000f 	cmp	r5, #15	; 0xf
+    18f4:	8a00000e 	bhi	1934 <_Unwind_VRS_Pop+0x13c>
+    18f8:	e5942000 	ldr	r2, [r4]
+    18fc:	e3120001 	tst	r2, #1	; 0x1
+    1900:	0a00000b 	beq	1934 <_Unwind_VRS_Pop+0x13c>
+    1904:	e3530005 	cmp	r3, #5	; 0x5
+    1908:	e1a00004 	mov	r0, r4
+    190c:	e3c23001 	bic	r3, r2, #1	; 0x1
+    1910:	e4803048 	str	r3, [r0], #72
+    1914:	1a000003 	bne	1928 <_Unwind_VRS_Pop+0x130>
+    1918:	e3833002 	orr	r3, r3, #2	; 0x2
+    191c:	e5843000 	str	r3, [r4]
+    1920:	eb00009a 	bl	1b90 <__gnu_Unwind_Save_VFP_D>
+    1924:	ea000002 	b	1934 <_Unwind_VRS_Pop+0x13c>
+    1928:	e3c22003 	bic	r2, r2, #3	; 0x3
+    192c:	e5842000 	str	r2, [r4]
+    1930:	eb000092 	bl	1b80 <__gnu_Unwind_Save_VFP>
+    1934:	e3560000 	cmp	r6, #0	; 0x0
+    1938:	da000006 	ble	1958 <_Unwind_VRS_Pop+0x160>
+    193c:	e5943000 	ldr	r3, [r4]
+    1940:	e3130004 	tst	r3, #4	; 0x4
+    1944:	0a000003 	beq	1958 <_Unwind_VRS_Pop+0x160>
+    1948:	e3c33004 	bic	r3, r3, #4	; 0x4
+    194c:	e1a00004 	mov	r0, r4
+    1950:	e48030d0 	str	r3, [r0], #208
+    1954:	eb000091 	bl	1ba0 <__gnu_Unwind_Save_VFP_D_16_to_31>
+    1958:	e3570000 	cmp	r7, #0	; 0x0
+    195c:	0a000002 	beq	196c <_Unwind_VRS_Pop+0x174>
+    1960:	e1a0000d 	mov	r0, sp
+    1964:	eb000085 	bl	1b80 <__gnu_Unwind_Save_VFP>
+    1968:	ea000007 	b	198c <_Unwind_VRS_Pop+0x194>
+    196c:	e355000f 	cmp	r5, #15	; 0xf
+    1970:	8a000001 	bhi	197c <_Unwind_VRS_Pop+0x184>
+    1974:	e1a0000d 	mov	r0, sp
+    1978:	eb000084 	bl	1b90 <__gnu_Unwind_Save_VFP_D>
+    197c:	e35a0000 	cmp	sl, #0	; 0x0
+    1980:	0a000003 	beq	1994 <_Unwind_VRS_Pop+0x19c>
+    1984:	e28d0f42 	add	r0, sp, #264	; 0x108
+    1988:	eb000084 	bl	1ba0 <__gnu_Unwind_Save_VFP_D_16_to_31>
+    198c:	e3560000 	cmp	r6, #0	; 0x0
+    1990:	c2658010 	rsbgt	r8, r5, #16	; 0x10
+    1994:	e5941038 	ldr	r1, [r4, #56]
+    1998:	e3580000 	cmp	r8, #0	; 0x0
+    199c:	e1a03001 	mov	r3, r1
+    19a0:	da00000b 	ble	19d4 <_Unwind_VRS_Pop+0x1dc>
+    19a4:	e1a08088 	lsl	r8, r8, #1
+    19a8:	e1a0300d 	mov	r3, sp
+    19ac:	e0833185 	add	r3, r3, r5, lsl #3
+    19b0:	e1a00008 	mov	r0, r8
+    19b4:	e3a02000 	mov	r2, #0	; 0x0
+    19b8:	ea000002 	b	19c8 <_Unwind_VRS_Pop+0x1d0>
+    19bc:	e792c001 	ldr	ip, [r2, r1]
+    19c0:	e783c002 	str	ip, [r3, r2]
+    19c4:	e2822004 	add	r2, r2, #4	; 0x4
+    19c8:	e2500001 	subs	r0, r0, #1	; 0x1
+    19cc:	2afffffa 	bcs	19bc <_Unwind_VRS_Pop+0x1c4>
+    19d0:	e0813108 	add	r3, r1, r8, lsl #2
+    19d4:	e3560000 	cmp	r6, #0	; 0x0
+    19d8:	da00000f 	ble	1a1c <_Unwind_VRS_Pop+0x224>
+    19dc:	e3550010 	cmp	r5, #16	; 0x10
+    19e0:	21a0c005 	movcs	ip, r5
+    19e4:	33a0c010 	movcc	ip, #16	; 0x10
+    19e8:	e28d2f42 	add	r2, sp, #264	; 0x108
+    19ec:	e24cc010 	sub	ip, ip, #16	; 0x10
+    19f0:	e1a00086 	lsl	r0, r6, #1
+    19f4:	e082c18c 	add	ip, r2, ip, lsl #3
+    19f8:	e1a01000 	mov	r1, r0
+    19fc:	e3a02000 	mov	r2, #0	; 0x0
+    1a00:	ea000002 	b	1a10 <_Unwind_VRS_Pop+0x218>
+    1a04:	e7938002 	ldr	r8, [r3, r2]
+    1a08:	e78c8002 	str	r8, [ip, r2]
+    1a0c:	e2822004 	add	r2, r2, #4	; 0x4
+    1a10:	e2511001 	subs	r1, r1, #1	; 0x1
+    1a14:	2afffffa 	bcs	1a04 <_Unwind_VRS_Pop+0x20c>
+    1a18:	e0833100 	add	r3, r3, r0, lsl #2
+    1a1c:	e3570000 	cmp	r7, #0	; 0x0
+    1a20:	12833004 	addne	r3, r3, #4	; 0x4
+    1a24:	e3570000 	cmp	r7, #0	; 0x0
+    1a28:	e5843038 	str	r3, [r4, #56]
+    1a2c:	0a000002 	beq	1a3c <_Unwind_VRS_Pop+0x244>
+    1a30:	e1a0000d 	mov	r0, sp
+    1a34:	eb00004f 	bl	1b78 <__gnu_Unwind_Restore_VFP>
+    1a38:	ea000046 	b	1b58 <_Unwind_VRS_Pop+0x360>
+    1a3c:	e355000f 	cmp	r5, #15	; 0xf
+    1a40:	8a000001 	bhi	1a4c <_Unwind_VRS_Pop+0x254>
+    1a44:	e1a0000d 	mov	r0, sp
+    1a48:	eb00004e 	bl	1b88 <__gnu_Unwind_Restore_VFP_D>
+    1a4c:	e3560000 	cmp	r6, #0	; 0x0
+    1a50:	da000040 	ble	1b58 <_Unwind_VRS_Pop+0x360>
+    1a54:	e28d0f42 	add	r0, sp, #264	; 0x108
+    1a58:	eb00004e 	bl	1b98 <__gnu_Unwind_Restore_VFP_D_16_to_31>
+    1a5c:	ea00003d 	b	1b58 <_Unwind_VRS_Pop+0x360>
+    1a60:	e3530003 	cmp	r3, #3	; 0x3
+    1a64:	1a000039 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    1a68:	e1a07802 	lsl	r7, r2, #16
+    1a6c:	e1a07827 	lsr	r7, r7, #16
+    1a70:	e1a05822 	lsr	r5, r2, #16
+    1a74:	e0873005 	add	r3, r7, r5
+    1a78:	e3530010 	cmp	r3, #16	; 0x10
+    1a7c:	8a000033 	bhi	1b50 <_Unwind_VRS_Pop+0x358>
+    1a80:	e5903000 	ldr	r3, [r0]
+    1a84:	e3130008 	tst	r3, #8	; 0x8
+    1a88:	0a000002 	beq	1a98 <_Unwind_VRS_Pop+0x2a0>
+    1a8c:	e3c33008 	bic	r3, r3, #8	; 0x8
+    1a90:	e48031b0 	str	r3, [r0], #432
+    1a94:	eb000054 	bl	1bec <__gnu_Unwind_Save_WMMXD>
+    1a98:	e28d6088 	add	r6, sp, #136	; 0x88
+    1a9c:	e1a00006 	mov	r0, r6
+    1aa0:	e1a07087 	lsl	r7, r7, #1
+    1aa4:	eb000050 	bl	1bec <__gnu_Unwind_Save_WMMXD>
+    1aa8:	e0865185 	add	r5, r6, r5, lsl #3
+    1aac:	e5942038 	ldr	r2, [r4, #56]
+    1ab0:	e1a06007 	mov	r6, r7
+    1ab4:	e3a03000 	mov	r3, #0	; 0x0
+    1ab8:	ea000003 	b	1acc <_Unwind_VRS_Pop+0x2d4>
+    1abc:	e7931002 	ldr	r1, [r3, r2]
+    1ac0:	e7851003 	str	r1, [r5, r3]
+    1ac4:	e2466001 	sub	r6, r6, #1	; 0x1
+    1ac8:	e2833004 	add	r3, r3, #4	; 0x4
+    1acc:	e3560000 	cmp	r6, #0	; 0x0
+    1ad0:	1afffff9 	bne	1abc <_Unwind_VRS_Pop+0x2c4>
+    1ad4:	e0827107 	add	r7, r2, r7, lsl #2
+    1ad8:	e28d0088 	add	r0, sp, #136	; 0x88
+    1adc:	e5847038 	str	r7, [r4, #56]
+    1ae0:	eb000030 	bl	1ba8 <__gnu_Unwind_Restore_WMMXD>
+    1ae4:	e1a00006 	mov	r0, r6
+    1ae8:	ea00001b 	b	1b5c <_Unwind_VRS_Pop+0x364>
+    1aec:	e3520010 	cmp	r2, #16	; 0x10
+    1af0:	93530000 	cmpls	r3, #0	; 0x0
+    1af4:	1a000015 	bne	1b50 <_Unwind_VRS_Pop+0x358>
+    1af8:	e5903000 	ldr	r3, [r0]
+    1afc:	e3130010 	tst	r3, #16	; 0x10
+    1b00:	0a000002 	beq	1b10 <_Unwind_VRS_Pop+0x318>
+    1b04:	e3c33010 	bic	r3, r3, #16	; 0x10
+    1b08:	e4803230 	str	r3, [r0], #560
+    1b0c:	eb00004c 	bl	1c44 <__gnu_Unwind_Save_WMMXC>
+    1b10:	e28d6f62 	add	r6, sp, #392	; 0x188
+    1b14:	e1a00006 	mov	r0, r6
+    1b18:	eb000049 	bl	1c44 <__gnu_Unwind_Save_WMMXC>
+    1b1c:	e5942038 	ldr	r2, [r4, #56]
+    1b20:	e3a03000 	mov	r3, #0	; 0x0
+    1b24:	e3a01001 	mov	r1, #1	; 0x1
+    1b28:	e0150311 	ands	r0, r5, r1, lsl r3
+    1b2c:	14920004 	ldrne	r0, [r2], #4
+    1b30:	17860103 	strne	r0, [r6, r3, lsl #2]
+    1b34:	e2833001 	add	r3, r3, #1	; 0x1
+    1b38:	e3530004 	cmp	r3, #4	; 0x4
+    1b3c:	1afffff9 	bne	1b28 <_Unwind_VRS_Pop+0x330>
+    1b40:	e5842038 	str	r2, [r4, #56]
+    1b44:	e28d0f62 	add	r0, sp, #392	; 0x188
+    1b48:	eb000038 	bl	1c30 <__gnu_Unwind_Restore_WMMXC>
+    1b4c:	ea000001 	b	1b58 <_Unwind_VRS_Pop+0x360>
+    1b50:	e3a00002 	mov	r0, #2	; 0x2
+    1b54:	ea000000 	b	1b5c <_Unwind_VRS_Pop+0x364>
+    1b58:	e3a00000 	mov	r0, #0	; 0x0
+    1b5c:	e28ddf67 	add	sp, sp, #412	; 0x19c
+    1b60:	e8bd85f0 	pop	{r4, r5, r6, r7, r8, sl, pc}
+
+00001b64 <__restore_core_regs>:
+    1b64:	e2801034 	add	r1, r0, #52	; 0x34
+    1b68:	e8910038 	ldm	r1, {r3, r4, r5}
+    1b6c:	e92d0038 	push	{r3, r4, r5}
+    1b70:	e8900fff 	ldm	r0, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp}
+    1b74:	e89de000 	ldm	sp, {sp, lr, pc}
+
+00001b78 <__gnu_Unwind_Restore_VFP>:
+    1b78:	ec900b21 	fldmiax	r0, {d0-d15}
+    1b7c:	e12fff1e 	bx	lr
+
+00001b80 <__gnu_Unwind_Save_VFP>:
+    1b80:	ec800b21 	fstmiax	r0, {d0-d15}
+    1b84:	e12fff1e 	bx	lr
+
+00001b88 <__gnu_Unwind_Restore_VFP_D>:
+    1b88:	ec900b20 	vldmia	r0, {d0-d15}
+    1b8c:	e12fff1e 	bx	lr
+
+00001b90 <__gnu_Unwind_Save_VFP_D>:
+    1b90:	ec800b20 	vstmia	r0, {d0-d15}
+    1b94:	e12fff1e 	bx	lr
+
+00001b98 <__gnu_Unwind_Restore_VFP_D_16_to_31>:
+    1b98:	ecd00b20 	vldmia	r0, {d16-d31}
+    1b9c:	e12fff1e 	bx	lr
+
+00001ba0 <__gnu_Unwind_Save_VFP_D_16_to_31>:
+    1ba0:	ecc00b20 	vstmia	r0, {d16-d31}
+    1ba4:	e12fff1e 	bx	lr
+
+00001ba8 <__gnu_Unwind_Restore_WMMXD>:
+    1ba8:	ecf00102 	ldfe	f0, [r0], #8
+    1bac:	ecf01102 	ldfe	f1, [r0], #8
+    1bb0:	ecf02102 	ldfe	f2, [r0], #8
+    1bb4:	ecf03102 	ldfe	f3, [r0], #8
+    1bb8:	ecf04102 	ldfe	f4, [r0], #8
+    1bbc:	ecf05102 	ldfe	f5, [r0], #8
+    1bc0:	ecf06102 	ldfe	f6, [r0], #8
+    1bc4:	ecf07102 	ldfe	f7, [r0], #8
+    1bc8:	ecf08102 	ldfp	f0, [r0], #8
+    1bcc:	ecf09102 	ldfp	f1, [r0], #8
+    1bd0:	ecf0a102 	ldfp	f2, [r0], #8
+    1bd4:	ecf0b102 	ldfp	f3, [r0], #8
+    1bd8:	ecf0c102 	ldfp	f4, [r0], #8
+    1bdc:	ecf0d102 	ldfp	f5, [r0], #8
+    1be0:	ecf0e102 	ldfp	f6, [r0], #8
+    1be4:	ecf0f102 	ldfp	f7, [r0], #8
+    1be8:	e12fff1e 	bx	lr
+
+00001bec <__gnu_Unwind_Save_WMMXD>:
+    1bec:	ece00102 	stfe	f0, [r0], #8
+    1bf0:	ece01102 	stfe	f1, [r0], #8
+    1bf4:	ece02102 	stfe	f2, [r0], #8
+    1bf8:	ece03102 	stfe	f3, [r0], #8
+    1bfc:	ece04102 	stfe	f4, [r0], #8
+    1c00:	ece05102 	stfe	f5, [r0], #8
+    1c04:	ece06102 	stfe	f6, [r0], #8
+    1c08:	ece07102 	stfe	f7, [r0], #8
+    1c0c:	ece08102 	stfp	f0, [r0], #8
+    1c10:	ece09102 	stfp	f1, [r0], #8
+    1c14:	ece0a102 	stfp	f2, [r0], #8
+    1c18:	ece0b102 	stfp	f3, [r0], #8
+    1c1c:	ece0c102 	stfp	f4, [r0], #8
+    1c20:	ece0d102 	stfp	f5, [r0], #8
+    1c24:	ece0e102 	stfp	f6, [r0], #8
+    1c28:	ece0f102 	stfp	f7, [r0], #8
+    1c2c:	e12fff1e 	bx	lr
+
+00001c30 <__gnu_Unwind_Restore_WMMXC>:
+    1c30:	fcb08101 	ldc2	1, cr8, [r0], #4
+    1c34:	fcb09101 	ldc2	1, cr9, [r0], #4
+    1c38:	fcb0a101 	ldc2	1, cr10, [r0], #4
+    1c3c:	fcb0b101 	ldc2	1, cr11, [r0], #4
+    1c40:	e12fff1e 	bx	lr
+
+00001c44 <__gnu_Unwind_Save_WMMXC>:
+    1c44:	fca08101 	stc2	1, cr8, [r0], #4
+    1c48:	fca09101 	stc2	1, cr9, [r0], #4
+    1c4c:	fca0a101 	stc2	1, cr10, [r0], #4
+    1c50:	fca0b101 	stc2	1, cr11, [r0], #4
+    1c54:	e12fff1e 	bx	lr
+
+00001c58 <_Unwind_RaiseException>:
+    1c58:	e92de000 	push	{sp, lr, pc}
+    1c5c:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    1c60:	e3a03000 	mov	r3, #0	; 0x0
+    1c64:	e92d000c 	push	{r2, r3}
+    1c68:	e28d1004 	add	r1, sp, #4	; 0x4
+    1c6c:	ebfffe95 	bl	16c8 <__gnu_Unwind_RaiseException>
+    1c70:	e59de040 	ldr	lr, [sp, #64]
+    1c74:	e28dd048 	add	sp, sp, #72	; 0x48
+    1c78:	e12fff1e 	bx	lr
+
+00001c7c <_Unwind_Resume>:
+    1c7c:	e92de000 	push	{sp, lr, pc}
+    1c80:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    1c84:	e3a03000 	mov	r3, #0	; 0x0
+    1c88:	e92d000c 	push	{r2, r3}
+    1c8c:	e28d1004 	add	r1, sp, #4	; 0x4
+    1c90:	ebfffebd 	bl	178c <__gnu_Unwind_Resume>
+    1c94:	e59de040 	ldr	lr, [sp, #64]
+    1c98:	e28dd048 	add	sp, sp, #72	; 0x48
+    1c9c:	e12fff1e 	bx	lr
+
+00001ca0 <_Unwind_Resume_or_Rethrow>:
+    1ca0:	e92de000 	push	{sp, lr, pc}
+    1ca4:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    1ca8:	e3a03000 	mov	r3, #0	; 0x0
+    1cac:	e92d000c 	push	{r2, r3}
+    1cb0:	e28d1004 	add	r1, sp, #4	; 0x4
+    1cb4:	ebfffeac 	bl	176c <__gnu_Unwind_Resume_or_Rethrow>
+    1cb8:	e59de040 	ldr	lr, [sp, #64]
+    1cbc:	e28dd048 	add	sp, sp, #72	; 0x48
+    1cc0:	e12fff1e 	bx	lr
+
+00001cc4 <_Unwind_ForcedUnwind>:
+    1cc4:	e92de000 	push	{sp, lr, pc}
+    1cc8:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    1ccc:	e3a03000 	mov	r3, #0	; 0x0
+    1cd0:	e92d000c 	push	{r2, r3}
+    1cd4:	e28d3004 	add	r3, sp, #4	; 0x4
+    1cd8:	ebfffe5d 	bl	1654 <__gnu_Unwind_ForcedUnwind>
+    1cdc:	e59de040 	ldr	lr, [sp, #64]
+    1ce0:	e28dd048 	add	sp, sp, #72	; 0x48
+    1ce4:	e12fff1e 	bx	lr
+
+00001ce8 <_Unwind_Backtrace>:
+    1ce8:	e92de000 	push	{sp, lr, pc}
+    1cec:	e92d1fff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+    1cf0:	e3a03000 	mov	r3, #0	; 0x0
+    1cf4:	e92d000c 	push	{r2, r3}
+    1cf8:	e28d2004 	add	r2, sp, #4	; 0x4
+    1cfc:	ebfffdd8 	bl	1464 <__gnu_Unwind_Backtrace>
+    1d00:	e59de040 	ldr	lr, [sp, #64]
+    1d04:	e28dd048 	add	sp, sp, #72	; 0x48
+    1d08:	e12fff1e 	bx	lr
+    1d0c:	e5d02008 	ldrb	r2, [r0, #8]
+    1d10:	e1a03000 	mov	r3, r0
+    1d14:	e3520000 	cmp	r2, #0	; 0x0
+    1d18:	1a00000a 	bne	1d48 <_Unwind_Backtrace+0x60>
+    1d1c:	e5d01009 	ldrb	r1, [r0, #9]
+    1d20:	e3510000 	cmp	r1, #0	; 0x0
+    1d24:	03a000b0 	moveq	r0, #176	; 0xb0
+    1d28:	012fff1e 	bxeq	lr
+    1d2c:	e5932004 	ldr	r2, [r3, #4]
+    1d30:	e2411001 	sub	r1, r1, #1	; 0x1
+    1d34:	e5c31009 	strb	r1, [r3, #9]
+    1d38:	e4921004 	ldr	r1, [r2], #4
+    1d3c:	e8830006 	stm	r3, {r1, r2}
+    1d40:	e3a02003 	mov	r2, #3	; 0x3
+    1d44:	ea000000 	b	1d4c <_Unwind_Backtrace+0x64>
+    1d48:	e2422001 	sub	r2, r2, #1	; 0x1
+    1d4c:	e5930000 	ldr	r0, [r3]
+    1d50:	e5c32008 	strb	r2, [r3, #8]
+    1d54:	e1a02400 	lsl	r2, r0, #8
+    1d58:	e5832000 	str	r2, [r3]
+    1d5c:	e1a00c20 	lsr	r0, r0, #24
+    1d60:	e12fff1e 	bx	lr
+
+00001d64 <_Unwind_GetTextRelBase>:
+    1d64:	e92d4010 	push	{r4, lr}
+    1d68:	ebfffb9c 	bl	be0 <begopen-0x48>
+
+00001d6c <_Unwind_GetDataRelBase>:
+    1d6c:	e92d4010 	push	{r4, lr}
+    1d70:	ebfffb9a 	bl	be0 <begopen-0x48>
+
+00001d74 <_Unwind_GetLanguageSpecificData>:
+    1d74:	e92d401f 	push	{r0, r1, r2, r3, r4, lr}
+    1d78:	e3a01000 	mov	r1, #0	; 0x0
+    1d7c:	e3a0200c 	mov	r2, #12	; 0xc
+    1d80:	e08dc002 	add	ip, sp, r2
+    1d84:	e1a03001 	mov	r3, r1
+    1d88:	e58dc000 	str	ip, [sp]
+    1d8c:	ebfffbc3 	bl	ca0 <_Unwind_VRS_Get>
+    1d90:	e59d300c 	ldr	r3, [sp, #12]
+    1d94:	e593304c 	ldr	r3, [r3, #76]
+    1d98:	e5d32007 	ldrb	r2, [r3, #7]
+    1d9c:	e0833102 	add	r3, r3, r2, lsl #2
+    1da0:	e2830008 	add	r0, r3, #8	; 0x8
+    1da4:	e28dd014 	add	sp, sp, #20	; 0x14
+    1da8:	e8bd8000 	pop	{pc}
+
+00001dac <_Unwind_GetRegionStart>:
+    1dac:	e92d401f 	push	{r0, r1, r2, r3, r4, lr}
+    1db0:	e3a01000 	mov	r1, #0	; 0x0
+    1db4:	e3a0200c 	mov	r2, #12	; 0xc
+    1db8:	e1a03001 	mov	r3, r1
+    1dbc:	e08dc002 	add	ip, sp, r2
+    1dc0:	e58dc000 	str	ip, [sp]
+    1dc4:	ebfffbb5 	bl	ca0 <_Unwind_VRS_Get>
+    1dc8:	e59d300c 	ldr	r3, [sp, #12]
+    1dcc:	e5930048 	ldr	r0, [r3, #72]
+    1dd0:	e28dd014 	add	sp, sp, #20	; 0x14
+    1dd4:	e8bd8000 	pop	{pc}
+
+00001dd8 <__gnu_unwind_execute>:
+    1dd8:	e92d47ff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, lr}
+    1ddc:	e1a05000 	mov	r5, r0
+    1de0:	e1a06001 	mov	r6, r1
+    1de4:	e3a07000 	mov	r7, #0	; 0x0
+    1de8:	e28da00c 	add	sl, sp, #12	; 0xc
+    1dec:	e3a09eff 	mov	r9, #4080	; 0xff0
+    1df0:	e1a00006 	mov	r0, r6
+    1df4:	ebffffc4 	bl	1d0c <_Unwind_Backtrace+0x24>
+    1df8:	e35000b0 	cmp	r0, #176	; 0xb0
+    1dfc:	e1a04000 	mov	r4, r0
+    1e00:	1a000011 	bne	1e4c <__gnu_unwind_execute+0x74>
+    1e04:	e3570000 	cmp	r7, #0	; 0x0
+    1e08:	13a00000 	movne	r0, #0	; 0x0
+    1e0c:	1a0000cd 	bne	2148 <__gnu_unwind_execute+0x370>
+    1e10:	e28d400c 	add	r4, sp, #12	; 0xc
+    1e14:	e1a01007 	mov	r1, r7
+    1e18:	e3a0200e 	mov	r2, #14	; 0xe
+    1e1c:	e1a03007 	mov	r3, r7
+    1e20:	e1a00005 	mov	r0, r5
+    1e24:	e58d4000 	str	r4, [sp]
+    1e28:	ebfffb9c 	bl	ca0 <_Unwind_VRS_Get>
+    1e2c:	e1a00005 	mov	r0, r5
+    1e30:	e1a01007 	mov	r1, r7
+    1e34:	e3a0200f 	mov	r2, #15	; 0xf
+    1e38:	e1a03007 	mov	r3, r7
+    1e3c:	e58d4000 	str	r4, [sp]
+    1e40:	ebfffba9 	bl	cec <_Unwind_VRS_Set>
+    1e44:	e1a00007 	mov	r0, r7
+    1e48:	ea0000be 	b	2148 <__gnu_unwind_execute+0x370>
+    1e4c:	e2101080 	ands	r1, r0, #128	; 0x80
+    1e50:	1a00000e 	bne	1e90 <__gnu_unwind_execute+0xb8>
+    1e54:	e1a03001 	mov	r3, r1
+    1e58:	e1a08100 	lsl	r8, r0, #2
+    1e5c:	e3a0200d 	mov	r2, #13	; 0xd
+    1e60:	e1a00005 	mov	r0, r5
+    1e64:	e20880ff 	and	r8, r8, #255	; 0xff
+    1e68:	e58da000 	str	sl, [sp]
+    1e6c:	ebfffb8b 	bl	ca0 <_Unwind_VRS_Get>
+    1e70:	e59d300c 	ldr	r3, [sp, #12]
+    1e74:	e2888004 	add	r8, r8, #4	; 0x4
+    1e78:	e3140040 	tst	r4, #64	; 0x40
+    1e7c:	10688003 	rsbne	r8, r8, r3
+    1e80:	00838008 	addeq	r8, r3, r8
+    1e84:	e58d800c 	str	r8, [sp, #12]
+    1e88:	e3a01000 	mov	r1, #0	; 0x0
+    1e8c:	ea000022 	b	1f1c <__gnu_unwind_execute+0x144>
+    1e90:	e20030f0 	and	r3, r0, #240	; 0xf0
+    1e94:	e3530080 	cmp	r3, #128	; 0x80
+    1e98:	1a000011 	bne	1ee4 <__gnu_unwind_execute+0x10c>
+    1e9c:	e1a00006 	mov	r0, r6
+    1ea0:	ebffff99 	bl	1d0c <_Unwind_Backtrace+0x24>
+    1ea4:	e1a04404 	lsl	r4, r4, #8
+    1ea8:	e1804004 	orr	r4, r0, r4
+    1eac:	e3540902 	cmp	r4, #32768	; 0x8000
+    1eb0:	0a0000a3 	beq	2144 <__gnu_unwind_execute+0x36c>
+    1eb4:	e1a02a04 	lsl	r2, r4, #20
+    1eb8:	e3a01000 	mov	r1, #0	; 0x0
+    1ebc:	e1a02822 	lsr	r2, r2, #16
+    1ec0:	e1a00005 	mov	r0, r5
+    1ec4:	e1a03001 	mov	r3, r1
+    1ec8:	ebfffe4a 	bl	17f8 <_Unwind_VRS_Pop>
+    1ecc:	e1a04204 	lsl	r4, r4, #4
+    1ed0:	e3500000 	cmp	r0, #0	; 0x0
+    1ed4:	1a00009a 	bne	2144 <__gnu_unwind_execute+0x36c>
+    1ed8:	e3140902 	tst	r4, #32768	; 0x8000
+    1edc:	13a07001 	movne	r7, #1	; 0x1
+    1ee0:	eaffffc2 	b	1df0 <__gnu_unwind_execute+0x18>
+    1ee4:	e3530090 	cmp	r3, #144	; 0x90
+    1ee8:	1a000011 	bne	1f34 <__gnu_unwind_execute+0x15c>
+    1eec:	e200200f 	and	r2, r0, #15	; 0xf
+    1ef0:	e352000d 	cmp	r2, #13	; 0xd
+    1ef4:	1352000f 	cmpne	r2, #15	; 0xf
+    1ef8:	13a08000 	movne	r8, #0	; 0x0
+    1efc:	03a08001 	moveq	r8, #1	; 0x1
+    1f00:	0a00008f 	beq	2144 <__gnu_unwind_execute+0x36c>
+    1f04:	e1a01008 	mov	r1, r8
+    1f08:	e1a03008 	mov	r3, r8
+    1f0c:	e1a00005 	mov	r0, r5
+    1f10:	e58da000 	str	sl, [sp]
+    1f14:	ebfffb61 	bl	ca0 <_Unwind_VRS_Get>
+    1f18:	e1a01008 	mov	r1, r8
+    1f1c:	e1a00005 	mov	r0, r5
+    1f20:	e3a0200d 	mov	r2, #13	; 0xd
+    1f24:	e1a03001 	mov	r3, r1
+    1f28:	e58da000 	str	sl, [sp]
+    1f2c:	ebfffb6e 	bl	cec <_Unwind_VRS_Set>
+    1f30:	eaffffae 	b	1df0 <__gnu_unwind_execute+0x18>
+    1f34:	e35300a0 	cmp	r3, #160	; 0xa0
+    1f38:	1a000007 	bne	1f5c <__gnu_unwind_execute+0x184>
+    1f3c:	e1e02000 	mvn	r2, r0
+    1f40:	e2022007 	and	r2, r2, #7	; 0x7
+    1f44:	e1a02259 	asr	r2, r9, r2
+    1f48:	e3100008 	tst	r0, #8	; 0x8
+    1f4c:	e2022eff 	and	r2, r2, #4080	; 0xff0
+    1f50:	13822901 	orrne	r2, r2, #16384	; 0x4000
+    1f54:	e3a01000 	mov	r1, #0	; 0x0
+    1f58:	ea000058 	b	20c0 <__gnu_unwind_execute+0x2e8>
+    1f5c:	e35300b0 	cmp	r3, #176	; 0xb0
+    1f60:	1a000038 	bne	2048 <__gnu_unwind_execute+0x270>
+    1f64:	e35000b1 	cmp	r0, #177	; 0xb1
+    1f68:	1a000006 	bne	1f88 <__gnu_unwind_execute+0x1b0>
+    1f6c:	e1a00006 	mov	r0, r6
+    1f70:	ebffff65 	bl	1d0c <_Unwind_Backtrace+0x24>
+    1f74:	e2502000 	subs	r2, r0, #0	; 0x0
+    1f78:	0a000071 	beq	2144 <__gnu_unwind_execute+0x36c>
+    1f7c:	e21210f0 	ands	r1, r2, #240	; 0xf0
+    1f80:	0a00004e 	beq	20c0 <__gnu_unwind_execute+0x2e8>
+    1f84:	ea00006e 	b	2144 <__gnu_unwind_execute+0x36c>
+    1f88:	e35000b2 	cmp	r0, #178	; 0xb2
+    1f8c:	1a000019 	bne	1ff8 <__gnu_unwind_execute+0x220>
+    1f90:	e3a01000 	mov	r1, #0	; 0x0
+    1f94:	e3a0200d 	mov	r2, #13	; 0xd
+    1f98:	e1a03001 	mov	r3, r1
+    1f9c:	e1a00005 	mov	r0, r5
+    1fa0:	e58da000 	str	sl, [sp]
+    1fa4:	e3a04002 	mov	r4, #2	; 0x2
+    1fa8:	ebfffb3c 	bl	ca0 <_Unwind_VRS_Get>
+    1fac:	e1a00006 	mov	r0, r6
+    1fb0:	ea000002 	b	1fc0 <__gnu_unwind_execute+0x1e8>
+    1fb4:	e0838418 	add	r8, r3, r8, lsl r4
+    1fb8:	e2844007 	add	r4, r4, #7	; 0x7
+    1fbc:	e58d800c 	str	r8, [sp, #12]
+    1fc0:	ebffff51 	bl	1d0c <_Unwind_Backtrace+0x24>
+    1fc4:	e59d300c 	ldr	r3, [sp, #12]
+    1fc8:	e1a08000 	mov	r8, r0
+    1fcc:	e2181080 	ands	r1, r8, #128	; 0x80
+    1fd0:	e1a00006 	mov	r0, r6
+    1fd4:	e208807f 	and	r8, r8, #127	; 0x7f
+    1fd8:	1afffff5 	bne	1fb4 <__gnu_unwind_execute+0x1dc>
+    1fdc:	e2833f81 	add	r3, r3, #516	; 0x204
+    1fe0:	e0838418 	add	r8, r3, r8, lsl r4
+    1fe4:	e1a00005 	mov	r0, r5
+    1fe8:	e3a0200d 	mov	r2, #13	; 0xd
+    1fec:	e1a03001 	mov	r3, r1
+    1ff0:	e58d800c 	str	r8, [sp, #12]
+    1ff4:	eaffffcb 	b	1f28 <__gnu_unwind_execute+0x150>
+    1ff8:	e35000b3 	cmp	r0, #179	; 0xb3
+    1ffc:	1a000006 	bne	201c <__gnu_unwind_execute+0x244>
+    2000:	e1a00006 	mov	r0, r6
+    2004:	ebffff40 	bl	1d0c <_Unwind_Backtrace+0x24>
+    2008:	e3a01001 	mov	r1, #1	; 0x1
+    200c:	e200300f 	and	r3, r0, #15	; 0xf
+    2010:	e2833001 	add	r3, r3, #1	; 0x1
+    2014:	e20020f0 	and	r2, r0, #240	; 0xf0
+    2018:	ea000014 	b	2070 <__gnu_unwind_execute+0x298>
+    201c:	e20030fc 	and	r3, r0, #252	; 0xfc
+    2020:	e35300b4 	cmp	r3, #180	; 0xb4
+    2024:	02004003 	andeq	r4, r0, #3	; 0x3
+    2028:	12044007 	andne	r4, r4, #7	; 0x7
+    202c:	02842001 	addeq	r2, r4, #1	; 0x1
+    2030:	12842001 	addne	r2, r4, #1	; 0x1
+    2034:	03a01002 	moveq	r1, #2	; 0x2
+    2038:	03822701 	orreq	r2, r2, #262144	; 0x40000
+    203c:	13a01001 	movne	r1, #1	; 0x1
+    2040:	13822702 	orrne	r2, r2, #524288	; 0x80000
+    2044:	ea00001d 	b	20c0 <__gnu_unwind_execute+0x2e8>
+    2048:	e35300c0 	cmp	r3, #192	; 0xc0
+    204c:	1a000030 	bne	2114 <__gnu_unwind_execute+0x33c>
+    2050:	e35000c6 	cmp	r0, #198	; 0xc6
+    2054:	1a000007 	bne	2078 <__gnu_unwind_execute+0x2a0>
+    2058:	e1a00006 	mov	r0, r6
+    205c:	ebffff2a 	bl	1d0c <_Unwind_Backtrace+0x24>
+    2060:	e3a01003 	mov	r1, #3	; 0x3
+    2064:	e200300f 	and	r3, r0, #15	; 0xf
+    2068:	e2833001 	add	r3, r3, #1	; 0x1
+    206c:	e20020f0 	and	r2, r0, #240	; 0xf0
+    2070:	e1832602 	orr	r2, r3, r2, lsl #12
+    2074:	ea000011 	b	20c0 <__gnu_unwind_execute+0x2e8>
+    2078:	e35000c7 	cmp	r0, #199	; 0xc7
+    207c:	1a000008 	bne	20a4 <__gnu_unwind_execute+0x2cc>
+    2080:	e1a00006 	mov	r0, r6
+    2084:	ebffff20 	bl	1d0c <_Unwind_Backtrace+0x24>
+    2088:	e2502000 	subs	r2, r0, #0	; 0x0
+    208c:	0a00002c 	beq	2144 <__gnu_unwind_execute+0x36c>
+    2090:	e21230f0 	ands	r3, r2, #240	; 0xf0
+    2094:	1a00002a 	bne	2144 <__gnu_unwind_execute+0x36c>
+    2098:	e1a00005 	mov	r0, r5
+    209c:	e3a01004 	mov	r1, #4	; 0x4
+    20a0:	ea000024 	b	2138 <__gnu_unwind_execute+0x360>
+    20a4:	e20030f8 	and	r3, r0, #248	; 0xf8
+    20a8:	e35300c0 	cmp	r3, #192	; 0xc0
+    20ac:	1a000006 	bne	20cc <__gnu_unwind_execute+0x2f4>
+    20b0:	e200400f 	and	r4, r0, #15	; 0xf
+    20b4:	e2842001 	add	r2, r4, #1	; 0x1
+    20b8:	e3a01003 	mov	r1, #3	; 0x3
+    20bc:	e382280a 	orr	r2, r2, #655360	; 0xa0000
+    20c0:	e1a00005 	mov	r0, r5
+    20c4:	e1a03001 	mov	r3, r1
+    20c8:	ea00001a 	b	2138 <__gnu_unwind_execute+0x360>
+    20cc:	e35000c8 	cmp	r0, #200	; 0xc8
+    20d0:	1a000006 	bne	20f0 <__gnu_unwind_execute+0x318>
+    20d4:	e1a00006 	mov	r0, r6
+    20d8:	ebffff0b 	bl	1d0c <_Unwind_Backtrace+0x24>
+    20dc:	e200300f 	and	r3, r0, #15	; 0xf
+    20e0:	e20000f0 	and	r0, r0, #240	; 0xf0
+    20e4:	e2802010 	add	r2, r0, #16	; 0x10
+    20e8:	e2833001 	add	r3, r3, #1	; 0x1
+    20ec:	ea000006 	b	210c <__gnu_unwind_execute+0x334>
+    20f0:	e35000c9 	cmp	r0, #201	; 0xc9
+    20f4:	1a000012 	bne	2144 <__gnu_unwind_execute+0x36c>
+    20f8:	e1a00006 	mov	r0, r6
+    20fc:	ebffff02 	bl	1d0c <_Unwind_Backtrace+0x24>
+    2100:	e200300f 	and	r3, r0, #15	; 0xf
+    2104:	e2833001 	add	r3, r3, #1	; 0x1
+    2108:	e20020f0 	and	r2, r0, #240	; 0xf0
+    210c:	e1832602 	orr	r2, r3, r2, lsl #12
+    2110:	ea000005 	b	212c <__gnu_unwind_execute+0x354>
+    2114:	e20030f8 	and	r3, r0, #248	; 0xf8
+    2118:	e35300d0 	cmp	r3, #208	; 0xd0
+    211c:	1a000008 	bne	2144 <__gnu_unwind_execute+0x36c>
+    2120:	e2004007 	and	r4, r0, #7	; 0x7
+    2124:	e2842001 	add	r2, r4, #1	; 0x1
+    2128:	e3822702 	orr	r2, r2, #524288	; 0x80000
+    212c:	e1a00005 	mov	r0, r5
+    2130:	e3a01001 	mov	r1, #1	; 0x1
+    2134:	e3a03005 	mov	r3, #5	; 0x5
+    2138:	ebfffdae 	bl	17f8 <_Unwind_VRS_Pop>
+    213c:	e3500000 	cmp	r0, #0	; 0x0
+    2140:	0affff2a 	beq	1df0 <__gnu_unwind_execute+0x18>
+    2144:	e3a00009 	mov	r0, #9	; 0x9
+    2148:	e28dd010 	add	sp, sp, #16	; 0x10
+    214c:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+
+00002150 <__gnu_unwind_frame>:
+    2150:	e92d401f 	push	{r0, r1, r2, r3, r4, lr}
+    2154:	e590304c 	ldr	r3, [r0, #76]
+    2158:	e3a00003 	mov	r0, #3	; 0x3
+    215c:	e5932004 	ldr	r2, [r3, #4]
+    2160:	e5cd000c 	strb	r0, [sp, #12]
+    2164:	e1a02402 	lsl	r2, r2, #8
+    2168:	e58d2004 	str	r2, [sp, #4]
+    216c:	e1a00001 	mov	r0, r1
+    2170:	e5d32007 	ldrb	r2, [r3, #7]
+    2174:	e28d1004 	add	r1, sp, #4	; 0x4
+    2178:	e2833008 	add	r3, r3, #8	; 0x8
+    217c:	e58d3008 	str	r3, [sp, #8]
+    2180:	e5cd200d 	strb	r2, [sp, #13]
+    2184:	ebffff13 	bl	1dd8 <__gnu_unwind_execute>
+    2188:	e28dd014 	add	sp, sp, #20	; 0x14
+    218c:	e8bd8000 	pop	{pc}
