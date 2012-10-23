@@ -1,3 +1,4 @@
+// exercise about the function pointer
 #include <stdio.h>
 #include <signal.h>
 
