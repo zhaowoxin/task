@@ -1,2 +1,0 @@
-set solib-search-path /media/workdata/workbench/arm2mips/UnitTest/dlopen/obj/local/armeabi
-directory /home/armips/workbench/arm2mips/prebuilt/linux-x86/android-ndk-r6m-linux/platforms/android-8/arch-arm/usr/include /media/workdata/workbench/arm2mips/UnitTest/dlopen/jni /home/armips/workbench/arm2mips/prebuilt/linux-x86/android-ndk-r6m-linux/sources/cxx-stl/system
