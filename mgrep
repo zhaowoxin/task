@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#
+# if you wanna `less` command displaying with color
+# then you have to grep twice, because that color text
+# will `tee` to the temp file (findout).
+# I can not think out a better way to
+# solve it until now.
+# Next step I will support the multi-files open.
+# which command is `vim FILE -c ":tabnew FILE2" -c "..."`
+# if the second argument is a shell wildcard. Please 
+# add backslash before the wildcard.
+#
+
+function die
+{
+  echo -n "\n[1;39mWHY? SB, isn't it Good"
+  rm -r findout
+  exit 1
+}
+trap 'die' INT
+
+if [ $# -ne 2 ]; then
+  echo "[1;32mSB! parameter incorrect"
+  exit 1
+fi
+# Here is the color version.
+grep --color=always "$1" $2 -nri | tee findout | less -N -R
+# Here is the non-color version
+#grep --color=auto "$1" $2 -nri | tee findout | less -N
+read -p "[1;36m which one should be selected: [m" sel 
+if [ "$sel" == "q" -o "$sel" == "Q" ]; then
+  echo "[1;38mQuit"
+  rm -r findout
+  exit 1
+fi
+dig=`echo $sel | grep -E -o "[0-9]+"`
+if [ -z $dig ]; then
+  echo "[1;33mSB! Can you serious?"
+  exit 1
+fi
+total=$(sed -n '$=' findout)
+if [ $total -eq 0 ]; then
+  echo "[1;31mSB! Can not find the goal string"
+  exit 1
+fi
+if [ -e "findout" ] && [ -n "$dig" ] && [ $total -ge $dig ]; then 
+  #sed -n "${dig}p" findout
+  filename=`sed -n "${dig}p" findout | cut -d '' -f 3 | sed 's/\[K//g'`
+  line=`sed -n "${dig}p" findout | cut -d '' -f 11 | sed 's/\[K//g'`
+  echo FILENAME: $filename LINE: $line
+  # if `less` has no colors
+  #filename=`sed -n "${dig}p" findout | cut -d : -f 1` 
+  #line=`sed -n "${dig}p" findout | cut -d : -f 2` 
+  vim $filename +$line -c "/$1"
+  rm findout
+else
+  echo "[1;30mSB! I don't know either"
+  exit 1
+fi 
