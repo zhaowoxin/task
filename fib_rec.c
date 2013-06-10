@@ -1,3 +1,6 @@
+/*
+ * Fibonacci recursion version
+ */
 #include <stdio.h>
 
 int fib(int num)

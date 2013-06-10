@@ -1,5 +1,7 @@
+/*
+ * Fibonacci iteration version
+ */
 #include <stdio.h>
-
 int fib_iter(int i, int k, int count)
 {
   //if (count == 0) {
