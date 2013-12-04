@@ -24,14 +24,18 @@ void mklist(node **list, int num)
 {
   int i;
   (*list) = (node *)malloc(sizeof(node));
+  (*list)->id = 0;
+  (*list)->is_run = 0;
+  (*list)->next = NULL;
   node *bak = *list;
-  for(i = 0; i < num; i++) {
-    (*list)->next = (node *)malloc(sizeof(node));
-    (*list)->id = i;
-    (*list)->is_run = 0;
-    (*list) = (*list)->next;
+  for(i = 1; i < num; i++) {
+    bak->next = (node *)malloc(sizeof(node));
+    bak->next->id = i;
+    bak->next->is_run = 0;
+    bak->next->next = NULL;
+    bak = bak->next;
   }
-  *list = (*list)->next = bak;
+  bak->next = *list;
 }
 
 void prlist(node *list, int value)
@@ -212,25 +216,10 @@ void main_schd(node *head)
 int main(void)
 {
   node *head;
-  mklist(&head, 10);
+  mklist(&head, 3);
   prlist(head, head->id);
   printf("=============\n");
   main_schd(head);
-  //head = inslist(head, 11, 8);
-  //prlist(head, head->id);
-  //printf("=============\n");
-  //head = inslist(head, 15, 0);
-  //prlist(head, head->id);
-  //printf("=============\n");
-  //head = inslist(head, 15, 20);
-  //prlist(head, head->id);
-  //printf("=============\n");
-  //head = del_list_by_pos(head, 3);
-  //prlist(head, head->id);
-  //printf("=============\n");
-  //head = del_list_by_pos(head, 0);
-  //prlist(head, head->id);
-  //printf("=============\n");
 
   return 0;
 }
