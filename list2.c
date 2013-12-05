@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <time.h>
 
-#define _TIME(time) ((time) * 1000)
+#define _TIME(time) ((time) * 100000)
 
-pthread_mutex_t mutex;
+//pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 typedef struct list {
   int id;
   int is_run;
@@ -136,38 +137,44 @@ int i = 1;
 void *do_nothing(void *n)
 {
   node *bak = (void *)n;
+  printf("in do_nothing wait for %d time, id is %#lx\n", (int)bak->run_time, bak->node_tid);
   bak->is_run = 1;
-  pthread_mutex_lock(&mutex);
-  //pthread_mutex_lock(&(bak->mutex));
   usleep(_TIME((int)bak->run_time));
+  printf("===========the %d thread is over=======id is %#lx=====\n", i, bak->node_tid);
   bak->is_run = 0;
-  //pthread_mutex_unlock(&(bak->mutex));
-  printf("===========the %d thread is over============\n", i);
   i++;
-  pthread_mutex_unlock(&mutex);
 
   return (void *)0;
 }
 
 int schedule(node *head, int time)
 {
+   struct timespec t_start;
+   struct timespec t_end;
    int len = lenlist(head, head->id); 
    int ret;
    int k = 0;
    node *bak = head;
    while (1) {
+     clock_gettime(CLOCK_REALTIME, &t_start);
      if (bak->is_run == 1) {
        printf("next node %d\n", k++);
        bak = bak->next;
-       if(bak->id == head->id)
+       if(bak->id == head->id) {
+         clock_gettime(CLOCK_REALTIME, &t_end);
+         printf("The while loop spend %ld second and %ld nano-second\n",
+             t_end.tv_sec - t_start.tv_sec, t_end.tv_nsec - t_start.tv_nsec);
          return 1;
+       }
      } else {
-       printf("poll addr is %p\n", bak);
        bak->run_time = time;
        ret = pthread_create(&bak->node_tid, NULL, do_nothing, (void *)bak);  
        if (ret == 0) {
          //bak->is_run = 1;
-         printf("++++++++++++++the %dth thread++++++++++++++++\n", time);
+         clock_gettime(CLOCK_REALTIME, &t_end);
+         printf("The while loop spend %ld second and %ld nano-second\n",
+             t_end.tv_sec - t_start.tv_sec, t_end.tv_nsec - t_start.tv_nsec);
+         printf("++++++++++++++the %dth thread++++id %#lx++++++++++++\n", time, bak->node_tid);
          return 0;
        } 
      }
@@ -179,11 +186,10 @@ void *task_algorithm(void* hd)
   node *head = (node *)hd;
   int n = 1, ret;
   while (1) {
-    printf("call main thread callback function\n");
     usleep(_TIME(1));
     ret = schedule(head, n);
     if (ret == 1) {
-      printf("==========poll is full===================\n");
+      printf("==========pool is full===================\n");
       exit(1);
       // add it to the linked-list
       //add_into_backup_list();
@@ -202,7 +208,6 @@ void main_schd(node *head)
 {
   pthread_t tid;
   int ret;
-  printf("call main_schd function\n");
   ret = pthread_create(&tid, NULL, 
       task_algorithm, (void *)head);
   if (ret == 0) {
